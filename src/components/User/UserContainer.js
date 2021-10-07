@@ -1,7 +1,21 @@
-import React from "react"
+/*import React, { useState, useEffect } from "react"
+import UserList from "./UserList"
+import { v4 as uuidv4 } from "uuid"
 
-const UserContainer = () =>{
+const UserContainer = () => {
+ // const [groups, setGroups]
 
+
+
+  return (
+    <div className="container">
+      <div className="inner">
+        <UserList
+        //  groups={groups}
+        />
+      </div>
+    </div>
+  )
 }
 
-export default UserContainer
+export default UserContainer*/

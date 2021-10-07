@@ -7,6 +7,9 @@ import { BrowserRouter } from 'react-router-dom';
 import Home from './components/ContentContainer'
 import Navbar from './components/Navbar'
 import User from './components/User/UserContainer'
+import GroupItem from './components/Group/GroupItem'
+import GroupContainer from './components/Group/GroupContainer';
+
 
 function App() {
   return (
@@ -15,6 +18,7 @@ function App() {
     <Switch>
       <Route path = "/" exact component={Home}/>
       <Route path = "/users" exact component={User}/>
+      <Route path = "/groups" exact component={GroupContainer}/>
     </Switch>
    </BrowserRouter>
   );
