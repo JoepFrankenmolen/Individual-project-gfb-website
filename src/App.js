@@ -7,7 +7,6 @@ import { BrowserRouter } from 'react-router-dom';
 import Home from './components/ContentContainer'
 import Navbar from './components/Navbar'
 import User from './components/User/UserContainer'
-import GroupItem from './components/Group/GroupItem'
 import GroupContainer from './components/Group/GroupContainer';
 
 

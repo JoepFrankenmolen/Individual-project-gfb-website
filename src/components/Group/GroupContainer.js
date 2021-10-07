@@ -29,13 +29,7 @@ import { v4 as uuidv4 } from "uuid"
 
 const baseURL = "http://localhost:8080/groups"
 
-const GroupContainer = () => {
-/*        const groups = [
-        {id:1,name:"test",category:"test",active:true},
-        {id:2,name:"test",category:"test",active:true},
-        {id:3,name:"test",category:"test",active:true}
-      ]*/
-    
+const GroupContainer = () => { 
 
     const [groups,setGroup] = useState(null);
 
