@@ -5,10 +5,14 @@ import styles from "./GroupItem.module.css"
   
 const GroupItem = props => {
     return(
-        <li className={styles.item}>
-            <p>{props.group.name}</p>
-            <p>{props.group.category}</p>
+        <div class="groupitem">
+        <li className={styles.item} >
+            <b>{props.group.name}</b><br />
+            <a>category: {props.group.category}</a><br />
+            <a>is active: {props.group.active.toString()}</a>
         </li>
+        </div>
+        
     )
 }
 

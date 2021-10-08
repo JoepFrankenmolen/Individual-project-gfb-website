@@ -1,0 +1,4 @@
+todo:
+make sure the divs of group have the correct layout
+the whole site :)
+the banner logo

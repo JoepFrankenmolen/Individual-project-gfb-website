@@ -25,6 +25,7 @@ export default function App() {
 import axios from "axios";
 import React, { useState, useEffect } from "react"
 import GroupList from "./GroupList"
+import GroupDetails from "./GroupDetails"
 import { v4 as uuidv4 } from "uuid"
 
 const baseURL = "http://localhost:8080/groups"
@@ -49,6 +50,7 @@ const GroupContainer = () => {
             <GroupList
                 groups={groups}
             />
+            
         </div>
     </div>
     )
