@@ -12,14 +12,22 @@ import GroupContainer from './components/Group/GroupContainer';
 
 function App() {
   return (
-   <BrowserRouter>
-    <Navbar/>
-    <Switch>
-      <Route path = "/" exact component={Home}/>
-      <Route path = "/users" exact component={User}/>
-      <Route path = "/groups" exact component={GroupContainer}/>
-    </Switch>
-   </BrowserRouter>
+    <div>
+      
+      <BrowserRouter>
+        <Navbar/>
+        <Switch>
+          <Route exact path = "/users">
+            <User/>
+          </Route>
+          <Route exact path = "/groups">
+            <GroupContainer/>
+          </Route>
+
+        </Switch>
+      </BrowserRouter>
+    </div>
+   
   );
 }
 
