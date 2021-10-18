@@ -3,14 +3,14 @@ import GroupItem from "./GroupItem"
 
 const GroupList = props => {
   return (
-    <ul>
+    <div className="list" >
       {props.groups.map(group => (
         <GroupItem
           key={group.id}
           group={group}
         />
       ))}
-    </ul>
+    </div>
   )
 }
 export default GroupList
