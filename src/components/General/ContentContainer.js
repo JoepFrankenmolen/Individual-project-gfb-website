@@ -6,7 +6,7 @@ import AdminContainer from "../Admin/AdminContainer";
 const ContentContainer = () => {
 
 return (
-    <div className="test">
+    <div className="contentcontainer">
         <Switch>
           <Route path = "/admin*">
             <AdminContainer url="/admin"/>
