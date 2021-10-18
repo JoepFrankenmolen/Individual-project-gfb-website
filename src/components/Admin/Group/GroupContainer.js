@@ -46,12 +46,9 @@ const GroupContainer = () => {
    
     return (
     <div className="container">
-        <div className="inner">
-            <GroupList
-                groups={groups}
-            />
-            
-        </div>
+        <GroupList
+            groups={groups}
+        />
     </div>
     )
 }

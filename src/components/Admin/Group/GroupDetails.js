@@ -1,12 +1,12 @@
 import React from "react"
 import GroupItem from "./GroupItem"
 
-const GroupList = props => {
+const GroupDetails = props => {
   return (
-    <div class="grouplist">
+    <div class="details">
         {/*<h1>{props.group.title}</h1>*/}
         test
     </div>
   )
 }
-export default GroupList
+export default GroupDetails

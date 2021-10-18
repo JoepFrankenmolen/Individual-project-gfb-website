@@ -1,0 +1,25 @@
+
+.container{
+    
+}
+
+.list{
+    display: flex;
+    flex-flow: row wrap;
+    
+
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+
+.item {
+    width: 47.5%;
+    list-style-type: none;
+    border: 2px solid #eaeaea;
+    margin-left: 1%;
+    margin-right: 1%;
+    margin-top: 0.5%;
+    margin-bottom: 0.5%;
+  }
