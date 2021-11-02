@@ -1,55 +1,64 @@
-/*import axios from "axios";
-import React from "react";
-
-const baseURL = "http://localhost:8080/groups";
-
-export default function App() {
-  const [post, setPost] = React.useState(null);
-
-  React.useEffect(() => {
-    axios.get(baseURL).then((response) => {
-      setPost(response.data);
-    });
-  }, []);
-
-  if (!post) return null;
-
-  return (
-    <div>
-      <h1>{post.title}</h1>
-      <p>{post.body}</p>
-    </div>
-  );
-}*/
-
 import axios from "axios";
 import React, { useState, useEffect } from "react"
 import GroupList from "./GroupList"
 import GroupSearchBar from "./GroupSearchBar"
-import { v4 as uuidv4 } from "uuid"
+import GroupDetails from "./GroupDetails";
 
-const baseURL = "http://localhost:8080/groups"
+
 
 const GroupContainer = () => { 
+    const baseURL = "http://localhost:8080/groups"
 
     const [groups,setGroup] = useState(null);
+    const [group,setGroupId] = useState(null);
 
-    useEffect(() => {
-    axios.get(baseURL).then((response) => {
-        setGroup(response.data);
-    });
+    useEffect(() => 
+    {
+      setGroups(baseURL);
     }, []);
 
-    
-  if (!groups) return null;
+    const setGroups = url =>
+    {
+      axios.get(url).then((response) => 
+      {
+        setGroup(response.data);
+      });
+    }
 
-   
+    const useFilter = filter =>
+    {
+      if(filter.trim() != "")
+      {
+        setGroups(baseURL +"?filter="+ filter);
+        console.log(filter);
+      }
+      else
+      {
+          setGroups(baseURL)
+      }
+    }
+
+    const getGroupDetails = (id) =>
+    {
+      axios.get(baseURL+"/"+id).then((response) => 
+      {
+        setGroupId(response.data);
+      });
+    }
+    
+    //safe guard??
+    if (!groups) return null;
+
     return (
     <div className="container">
-      <GroupSearchBar/>
-        <GroupList
-            groups={groups}
-        />
+      <GroupSearchBar useFilter={useFilter}/>
+      <GroupList
+          groups={groups}
+          getGroupDetails={getGroupDetails}
+      />
+      <GroupDetails 
+          group = {group}
+      />
     </div>
     )
 }

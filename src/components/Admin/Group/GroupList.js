@@ -8,6 +8,7 @@ const GroupList = props => {
         <GroupItem
           key={group.id}
           group={group}
+          getGroupDetails={props.getGroupDetails}
         />
       ))}
     </div>

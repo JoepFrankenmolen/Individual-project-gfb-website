@@ -14,12 +14,33 @@
   }
 
 
-.item {
-    width: 47.5%;
-    list-style-type: none;
-    border: 2px solid #eaeaea;
-    margin-left: 1%;
-    margin-right: 1%;
-    margin-top: 0.5%;
-    margin-bottom: 0.5%;
-  }
+.item 
+{
+  display: flex;
+  width: 47.5%;
+  list-style-type: none;
+  border: 2px solid #eaeaea;
+  margin-left: 1%;
+  margin-right: 1%;
+  margin-top: 0.5%;
+  margin-bottom: 0.5%;
+  background: white;
+}
+
+.groupPictureDiv
+{
+  text-align: center;
+  width: 150px;
+  height: 100px;
+}
+
+.groupPicture
+{
+  max-width:100%;
+  max-height:100%;
+}
+
+.groupItemsDiv
+{
+
+}
