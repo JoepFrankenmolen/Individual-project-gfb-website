@@ -1,24 +1,37 @@
 import React from "react"
-import { Link } from "react-router-dom";
 import './../../css/navbar.css'
+import logo from "./../../logo.png"
+import {GiHamburgerMenu} from "react-icons/gi"
+import accountIcon from "./../../account-icon.png"
+import Searchbar from "./Searchbar"
+import agenda from "./../../agenda.png"
+import { Link } from "react-router-dom"
 
-const Navbar = () => {
+const Navbar = props => 
+{
+  const filter = () =>
+  {
+
+  }
+
+  //atm totaly not okay witht he filter with how it works but thats for alter
   return (
-    //mapping this is way easyied also the admin and normal nav are not the same
-    //todo:
     <nav class="navbar">
-      <a href="" class="logo">
-        {/*<img src="" alt="logo">*/}
-      </a>
+      {/*needs to be a button but for later */}
+      <div className="sideNavBarMenu">
+        <GiHamburgerMenu size={30} color="white"/>
+      </div>
+      
+      <Link to=""><img src={logo} alt="logo" class="logo"/></Link>
 
-      <ul class="nav-links">
-        <li class="nav-item">
-          <Link to="/admin/users">Users</Link>
-        </li>
-        <li class="nav-item"> 
-          <Link to="/admin/groups">Groups</Link>
-        </li>
-      </ul>
+      <Searchbar filter={filter}/>
+
+      <div class="agenda">
+        <Link to="/404"><img src={agenda} alt="agenda" class="agenda"/></Link>
+      </div>
+
+      <Link to="/myAccount"><img src={accountIcon} alt="account" class="accountIcon"/></Link>
+      
   </nav>
   )
 }

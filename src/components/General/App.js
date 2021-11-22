@@ -1,6 +1,8 @@
 import Navbar from './Navbar'
+import SideNavbar from './SideNavbar';
 import ContentContainer from './ContentContainer';
 import { BrowserRouter as Router} from 'react-router-dom';
+import "./../../css/App.css"
 
 
 function App() {
@@ -8,7 +10,14 @@ function App() {
     <div>
       <Router>
         <Navbar/>
-        <ContentContainer/>
+        <div className="parrent">
+          <div className="child">
+            <SideNavbar/>
+          </div>
+          <div className="child" className="test">
+            <ContentContainer/>
+          </div>         
+        </div>
       </Router>
     </div>
   );

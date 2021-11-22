@@ -1,0 +1,8 @@
+.sideNavbar{
+    background-color: hsl(120, 57%, 30%);
+    max-width: 100px;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+}

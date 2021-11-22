@@ -2,6 +2,7 @@ import React from "react"
 import { Route, Switch } from 'react-router';
 import Home from './Home';
 import AdminContainer from "../Admin/AdminContainer";
+import "./../../css/contentContainer.css"
 
 const ContentContainer = () => {
 

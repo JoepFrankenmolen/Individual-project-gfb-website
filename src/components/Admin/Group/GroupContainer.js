@@ -7,7 +7,7 @@ import GroupDetails from "./GroupDetails";
 
 
 const GroupContainer = () => { 
-    const baseURL = "http://localhost:8080/groups"
+    const baseURL = "http://localhost:8080/group"
 
     const [groups,setGroup] = useState(null);
     const [group,setGroupId] = useState(null);
