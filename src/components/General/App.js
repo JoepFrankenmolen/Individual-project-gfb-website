@@ -2,19 +2,40 @@ import Navbar from './Navbar'
 import SideNavbar from './SideNavbar';
 import ContentContainer from './ContentContainer';
 import { BrowserRouter as Router} from 'react-router-dom';
+import React, { useState} from 'react';
 import "./../../css/App.css"
+import userEvent from '@testing-library/user-event';
 
 
 function App() {
+
+  const[isShowed,setShow] = useState(true)
+
+  const hamburgerClicked = () =>{
+    setShow(!isShowed)
+  }
+  //kan beter maar is goed genoeg voor nu
+
+  const sideNavbar = () =>{
+    if(isShowed == true)
+    {
+      return(
+        <div className="body_child">
+              <SideNavbar/>
+        </div>
+      )
+    }
+  }
+
   return (
-    <div>
+    <div className="main_body">
       <Router>
-        <Navbar/>
-        <div className="parrent">
-          <div className="child">
-            <SideNavbar/>
-          </div>
-          <div className="child" className="test">
+        <Navbar
+          hamburgerClicked={hamburgerClicked}
+        />
+        <div className="body">
+          {sideNavbar()}
+          <div className="body_child" className="body_child_main">
             <ContentContainer/>
           </div>         
         </div>

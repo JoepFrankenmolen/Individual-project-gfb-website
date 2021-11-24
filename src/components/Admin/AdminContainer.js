@@ -2,9 +2,22 @@ import React, { useState, useEffect } from "react"
 import { Route, Switch, match } from 'react-router';
 import GroupContainer from './Group/GroupContainer';
 import UserContainer from './User/UserContainer'
+import pageNotFound from "../General/PageNotFound";
 import './../../css/admin.css'
 
 const AdminContainer = (props) => {
+
+  const noConnection = () =>{
+    return(
+      <pageNotFound
+          code={500}
+          message={"no server connection"}
+        />
+    )
+  }
+
+
+
     const {url} = props;
   return (
     <div className="admincontainer">
@@ -13,8 +26,16 @@ const AdminContainer = (props) => {
 
       <div>
         <Switch>
-          <Route path = {url + "/users"} component={UserContainer}/>
-          <Route path = {url +"/groups"} component={GroupContainer}/>
+          <Route path = {url + "/users"}>
+            <UserContainer
+              noConnection={noConnection}
+            />
+            </Route>
+          <Route path = {url +"/groups"}>
+            <GroupContainer
+                noConnection={noConnection}
+              />
+          </Route>
         </Switch>
       </div>
     </div>

@@ -3,10 +3,11 @@ import React, { useState, useEffect } from "react"
 import GroupList from "./GroupList"
 import GroupSearchBar from "./GroupSearchBar"
 import GroupDetails from "./GroupDetails";
+import pageNotFound from "../../General/PageNotFound";
 
 
 
-const GroupContainer = () => { 
+const GroupContainer = (props) => { 
     const baseURL = "http://localhost:8080/group"
 
     const [groups,setGroup] = useState(null);
@@ -19,10 +20,12 @@ const GroupContainer = () => {
 
     const setGroups = url =>
     {
-      axios.get(url).then((response) => 
-      {
-        setGroup(response.data);
-      });
+        axios.get(url).then((response) => 
+        {
+          setGroup(response.data);
+        }).catch(error => console.log(error));
+
+      
     }
 
     const useFilter = filter =>
@@ -47,7 +50,10 @@ const GroupContainer = () => {
     }
     
     //safe guard??
-    if (!groups) return null;
+    if (groups== null) {
+      props.noConnection()
+      return null
+    };
 
     return (
     <div className="container">

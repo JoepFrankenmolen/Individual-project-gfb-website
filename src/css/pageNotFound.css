@@ -1,0 +1,16 @@
+.main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80%;
+    flex-wrap: nowrap;
+    flex-direction: column;
+}
+
+.main h1{
+    font-size: 50px;
+}
+
+.main a{
+    font-size: 30px;
+}

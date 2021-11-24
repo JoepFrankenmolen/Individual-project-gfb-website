@@ -1,0 +1,8 @@
+.home{
+    overflow-y: scroll;
+    height: 100%
+}
+
+.post_picture{
+    max-height: 200px;
+}

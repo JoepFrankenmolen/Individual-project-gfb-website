@@ -1,10 +1,21 @@
-.parrent{
+.body{
     display: flex;
+    height: calc(100% - 64px) ;
   }
-  
- /* .child {
-  }*/
-.test{
-    margin-left: 2%;
+.navbar{
 }
+  
+ .body_child {
+   
+}
+
+.body_child_main{
+  width: 100%;
+}
+
+body,html,#root, .main_body{
+  height: 100%;
+}
+
+
   

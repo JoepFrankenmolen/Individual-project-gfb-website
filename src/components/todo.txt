@@ -2,3 +2,9 @@ todo:
 make sure the divs of group have the correct layout
 the whole site :)
 the banner logo
+
+
+
+naming conventions
+
+x_x_x

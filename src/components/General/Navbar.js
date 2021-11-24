@@ -14,11 +14,13 @@ const Navbar = props =>
 
   }
 
+
+
   //atm totaly not okay witht he filter with how it works but thats for alter
   return (
     <nav class="navbar">
       {/*needs to be a button but for later */}
-      <div className="sideNavBarMenu">
+      <div className="sideNavBarMenu" onClick={props.hamburgerClicked}>
         <GiHamburgerMenu size={30} color="white"/>
       </div>
       
@@ -27,7 +29,7 @@ const Navbar = props =>
       <Searchbar filter={filter}/>
 
       <div class="agenda">
-        <Link to="/404"><img src={agenda} alt="agenda" class="agenda"/></Link>
+        <Link to="/agenda"><img src={agenda} alt="agenda" class="agenda"/></Link>
       </div>
 
       <Link to="/myAccount"><img src={accountIcon} alt="account" class="accountIcon"/></Link>
