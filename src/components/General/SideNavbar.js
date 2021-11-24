@@ -28,6 +28,27 @@ const SideNavbar = () => {
       },
       {
         id: uuidv4(),
+        class:"home",
+        name:"speltakken",
+        route:"/speltakken",
+        isActive:false
+      },
+      {
+        id: uuidv4(),
+        class:"home",
+        name:"fotoboek",
+        route:"/fotoboek",
+        isActive:false
+      },
+      {
+        id: uuidv4(),
+        class:"home",
+        name:"contact",
+        route:"/contact",
+        isActive:false
+      },
+      {
+        id: uuidv4(),
         class:"admin",
         name:"admin",
         route:"/admin",
@@ -70,7 +91,7 @@ const SideNavbar = () => {
   }
 
   return (
-    <nav class="sideNavbar">
+    <div class="sideNavbar">
       <ul class="nav-links">
         {React.state.navItems.map(nav =>(
           <div>
@@ -82,7 +103,7 @@ const SideNavbar = () => {
         ))}
         <hr/>
       </ul>
-    </nav>
+    </div>
   )
 }
 

@@ -4,7 +4,6 @@ import ContentContainer from './ContentContainer';
 import { BrowserRouter as Router} from 'react-router-dom';
 import React, { useState} from 'react';
 import "./../../css/App.css"
-import userEvent from '@testing-library/user-event';
 
 
 function App() {
