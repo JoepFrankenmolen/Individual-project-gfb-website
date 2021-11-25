@@ -49,6 +49,20 @@ const SideNavbar = () => {
       },
       {
         id: uuidv4(),
+        class:"editor",
+        name:"editor",
+        route:"/editor",
+        isActive:false
+      },
+      {
+        id: uuidv4(),
+        class:"editor",
+        name:"my-posts",
+        route:"/myPosts",
+        isActive:false
+      },
+      {
+        id: uuidv4(),
         class:"admin",
         name:"admin",
         route:"/admin",
@@ -67,9 +81,24 @@ const SideNavbar = () => {
         name:"groups",
         route:"/admin/groups",
         isActive:false
-      }
+      }/*,
+      {
+        id: uuidv4(),
+        class:"admin",
+        name:"pictures",
+        route:"/admin/pictures",
+        isActive:false
+      },
+      {
+        id: uuidv4(),
+        class:"admin",
+        name:"posts",
+        route:"/admin/posts",
+        isActive:false
+      }*/
     ]
   }
+  // needs to have an page editor to but for now not needed
 
   const isActiveStyle = {
     backgroundColor: "hsl(120, 84%, 22%)"
@@ -83,7 +112,7 @@ const SideNavbar = () => {
   }
 
   const test = navClass =>{
-    if(pastClass != navClass)
+    if(pastClass !== navClass)
     {
       pastClass = navClass
       return <hr/>

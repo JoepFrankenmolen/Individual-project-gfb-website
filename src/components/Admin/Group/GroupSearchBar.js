@@ -6,10 +6,11 @@ const GroupSearchBar = props =>{
     const {title} = "";
 
     return(
-    <div className="form-container">
+    <div className="search_container">
         <input
         type="text"
         value={title}
+        placeholder="temp group searchbar.."
         onChange={e => {props.useFilter(e.target.value)}}
       />
     </div>    

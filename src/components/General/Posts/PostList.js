@@ -3,7 +3,7 @@ import PostItem from "./PostItem"
 
 const PostList = props => {
   return (
-    <div className="list" >
+    <div className="post_list" >
       {props.posts.map(post => (
         <PostItem
           key={post.id}

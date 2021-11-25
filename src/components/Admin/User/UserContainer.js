@@ -13,7 +13,7 @@ const UserContainer = () => {
        {/*} <UserList
         //  groups={groups}
   />*/}
-  <a>for now this is what I will have. this will be the admin section so it wont be seen by the everyday users. also there will be a button that when you hit it will show the information of the specific item</a>
+  <a>here will be all the users displayed</a>
       </div>
     </div>
   )

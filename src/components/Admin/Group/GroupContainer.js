@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react"
 import GroupList from "./GroupList"
 import GroupSearchBar from "./GroupSearchBar"
 import GroupDetails from "./GroupDetails";
-import pageNotFound from "../../General/PageNotFound";
+import PageNotFound from "../../General/PageNotFound";
 
 
 
@@ -49,19 +49,41 @@ const GroupContainer = (props) => {
       });
     }
     
-    //safe guard??
-    if (groups== null) {
-      props.noConnection()
-      return null
+    //safe guard?? will be done like this but better in the furte
+    if (groups == null) {
+      
+      return (
+        <div className="main">{props.noConnection()}</div>
+        
+      )
     };
 
     return (
-    <div className="container">
+    <div className="group_container">
+      <div className="group_info_bar">
+        <div className="group_info">
+          <div className="group_name">
+            <h1>group editor</h1>
+          </div>
+          
+          <div className="group_description">
+            <a>Here you can see, edit and create groups. Click a group to get the details.</a>
+          </div>
+        </div>
+        <div className="group_button">
+          <div className="group_create_button">
+              <a>create group</a>
+          </div>
+        </div>
+      </div>
+      
+      
       <GroupSearchBar useFilter={useFilter}/>
       <GroupList
           groups={groups}
           getGroupDetails={getGroupDetails}
       />
+      
       <GroupDetails 
           group = {group}
       />
