@@ -16,7 +16,7 @@ const Navbar = props =>
 
 
 
-  //atm totaly not okay witht he filter with how it works but thats for alter
+  //atm totaly not okay with the filter with how it works but thats for alter
   return (
     <nav class="navbar">
       {/*needs to be a button but for later */}
@@ -27,7 +27,7 @@ const Navbar = props =>
       <Link to=""><img src={logo} alt="logo" class="logo"/></Link>
 
       <Searchbar filter={filter}/>
-
+      <a className="red">this is a prototype website. everything will be changed</a>
       <div class="agenda">
         <Link to="/agenda"><img src={agenda} alt="agenda" class="agenda"/></Link>
       </div>

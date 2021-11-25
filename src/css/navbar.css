@@ -20,6 +20,14 @@
   cursor: pointer;
 }
 
+.red{
+  margin-left: 30%;
+  margin-top: 25px;
+  color: red;
+  font-size: 15px;
+
+}
+
 .searchBar[type=text] {
   margin-top: 17px;
   margin-left: 100%;
