@@ -8,13 +8,14 @@ import PageNotFound from "../../General/PageNotFound";
 
 
 const GroupContainer = (props) => { 
-    const baseURL = process.env.REACT_APP_SERVER_URL;
+    const baseURL = process.env.REACT_APP_GROUP;
 
     const [groups,setGroup] = useState(null);
     const [group,setGroupId] = useState(null);
 
     useEffect(() => 
     {
+      console.log(baseURL)
       setGroups(baseURL);
     }, []);
 

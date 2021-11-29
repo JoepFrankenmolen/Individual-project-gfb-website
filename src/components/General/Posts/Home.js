@@ -6,13 +6,15 @@ import "./../../../css/home.css"
 
 const Home = () => {
 
-  const baseURL = process.env.REACT_APP_SERVER_URL;
+  const baseURL = process.env.REACT_APP_POST;
 
   const [posts,setPosts] = useState(null);
 
   useEffect(() => 
     {
+      console.log(baseURL)
       setPostsAxios(baseURL);
+      
     }, []);
 
   const setPostsAxios = url =>
