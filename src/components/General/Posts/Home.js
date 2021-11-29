@@ -6,7 +6,7 @@ import "./../../../css/home.css"
 
 const Home = () => {
 
-  const baseURL = "http://localhost:8080/post"
+  const baseURL = process.env.REACT_APP_SERVER_URL;
 
   const [posts,setPosts] = useState(null);
 

@@ -1,5 +1,5 @@
 import './../../css/login.css'
-import logo from "./../../logo.png"
+import logo from "./../../media/logo.png"
 
 
 const Login = () =>{

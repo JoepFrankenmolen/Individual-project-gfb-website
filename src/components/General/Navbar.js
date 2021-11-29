@@ -1,10 +1,10 @@
 import React from "react"
 import './../../css/navbar.css'
-import logo from "./../../logo.png"
+import logo from "./../../media/logo.png"
 import {GiHamburgerMenu} from "react-icons/gi"
-import accountIcon from "./../../account-icon.png"
+import accountIcon from "./../../media/account-icon.png"
 import Searchbar from "./Searchbar"
-import agenda from "./../../agenda.png"
+import agenda from "./../../media/agenda.png"
 import { Link } from "react-router-dom"
 
 const Navbar = props => 

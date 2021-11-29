@@ -8,7 +8,7 @@ import PageNotFound from "../../General/PageNotFound";
 
 
 const GroupContainer = (props) => { 
-    const baseURL = "http://localhost:8080/group"
+    const baseURL = process.env.REACT_APP_SERVER_URL;
 
     const [groups,setGroup] = useState(null);
     const [group,setGroupId] = useState(null);
