@@ -3,7 +3,7 @@ import { Route, Switch, match } from 'react-router';
 import GroupContainer from './Group/GroupContainer';
 import UserContainer from './User/UserContainer'
 import PageNotFound from "../General/PageNotFound";
-import './../../css/admin.css'
+import './../../css/Admin/admin.css'
 
 const AdminContainer = props => {
 

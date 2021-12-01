@@ -22,6 +22,8 @@ const Home = () => {
     axios.get(url).then((response) => 
     {
       setPosts(response.data);
+    }).catch(error => {
+      console.log(error)
     });
   }
 

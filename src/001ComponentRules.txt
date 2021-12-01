@@ -1,0 +1,53 @@
+(file) = f/
+(folder) = f0/
+
+
+
+(for example the users = x)
+fo/X
+    f/XContainer
+    fo/list
+        f/XList
+        f/XItem
+    f/XDetails(depends wich page you are on you can edit this)
+    (f/xSearchBar)only for admin maybe do this using parents or something bc it could get out of hend or just a general admin searchbar
+
+
+fo/admin
+    fo/x
+    fo/x
+    fo/x
+    fo/x
+    f/AdminContainer
+
+fo/general
+    fo/nav
+        f/nav(with dropdown menu)
+    fo/contact
+        f/contact
+        f/contactMessenger
+        f/FAQ
+    fo/home
+        fo/X
+    fo/user
+        f/login(popup)
+        f/account (account details + edit settings)
+    f/searchbar
+    f/container
+    f/display(for desplaying for example error messages)
+    f/app
+f0/css
+fo/media
+fo/tests
+
+css naming conventions:
+x-x-x
+
+function naming conventions:
+xXX
+
+file naming conventions:
+XX
+
+folder naming conventions:
+XX

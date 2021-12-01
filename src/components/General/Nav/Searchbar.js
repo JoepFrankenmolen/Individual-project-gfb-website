@@ -1,4 +1,4 @@
-import './../../css/navbar.css'
+import './../../../css/navbar.css'
 
 
 const Searchbar = props =>{

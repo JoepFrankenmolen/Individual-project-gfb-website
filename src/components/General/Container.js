@@ -3,7 +3,7 @@ import { Route, Switch } from 'react-router';
 import Home from './Posts/Home';
 import Error404 from './PageNotFound';
 import AdminContainer from "../Admin/AdminContainer";
-import Login from "./Login";
+import Login from "./User/Login";
 import "./../../css/contentContainer.css"
 
 const ContentContainer = () => {
