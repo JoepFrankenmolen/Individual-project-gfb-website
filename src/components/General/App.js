@@ -1,16 +1,15 @@
+import Login from './User/Login.js';
 import Navbar from './Nav/Navbar.js'
-import SideNavbar from './SideNavbar';
-import ContentContainer from './Container';
+import Container from './Container';
 import { BrowserRouter as Router} from 'react-router-dom';
 import React, { useState} from 'react';
 import "./../../css/general.css"
-import Login from './User/Login.js';
 
 
 function App() {
 
   //const[isShowed,setShow] = useState(true)
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
  
   const toggleLogin = () => {
     setIsOpen(!isOpen);
@@ -40,16 +39,11 @@ function App() {
         />
       }
       <Router>
-      {/* <div>
-      <input
-      type="button"
-      value="Click to Open Popup"
-      onClick={toggleLogin}
-    />
-      </div> */}
         <Navbar
           toggleLogin={toggleLogin}
-          // hamburgerClicked={hamburgerClicked}
+        />
+        <Container 
+        
         />
         {/* <div className="body">
           {sideNavbar()}

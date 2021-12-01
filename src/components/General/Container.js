@@ -4,7 +4,7 @@ import Home from './Posts/Home';
 import Error404 from './PageNotFound';
 import AdminContainer from "../Admin/AdminContainer";
 import Login from "./User/Login";
-import "./../../css/contentContainer.css"
+import "./../../css/container.css"
 
 const ContentContainer = () => {
 

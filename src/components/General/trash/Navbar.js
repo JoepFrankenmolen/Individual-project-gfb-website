@@ -3,7 +3,7 @@ import './../../css/navbar.css'
 import logo from "./../../media/logo.png"
 import {GiHamburgerMenu} from "react-icons/gi"
 import accountIcon from "./../../media/account-icon.png"
-import Searchbar from "./Nav/Searchbar"
+import Searchbar from "../Nav/Searchbar"
 import agenda from "./../../media/agenda.png"
 import { Link } from "react-router-dom"
 

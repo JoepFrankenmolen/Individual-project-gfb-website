@@ -1,4 +1,4 @@
-import './../../../css/navbar.css'
+import React from 'react';
 
 
 const Searchbar = props =>{
@@ -6,13 +6,13 @@ const Searchbar = props =>{
     const {title} = "";
 
     return(
-    <div className="searchBarDiv">
+    <div className="searchbar-div">
         <input
-        className="searchBar"
         type="text"
+        className="searchbar"
         value={title}
         onChange={e => {props.filter(e.target.value)}}
-        placeholder="Search.."
+        placeholder="Search all posts.."
       />
     </div>    
     )

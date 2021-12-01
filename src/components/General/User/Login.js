@@ -1,5 +1,4 @@
 import React, { useState} from 'react';
-import './../../../css/general.css' 
 import './../../../css/login.css'
 
 
@@ -27,9 +26,13 @@ const Login = props =>
         })
       }
 
+    const empty = e =>{
+        e.stopPropagation();
+    }
+
   return (
-    <div className="popup-login">
-      <div className="box">
+    <div className="popup-login" onClick={props.handleClose}>
+      <div className="box" onClick={empty}>
         <span className="close-icon" onClick={props.handleClose}>x</span>
         <div className="top">
             <h1 className="Login-h1">Log in</h1>
@@ -44,7 +47,7 @@ const Login = props =>
                         className="login-text" 
                         value={userCredentials.email}
                         name="email" 
-                        placeholder="email.."
+                        placeholder="E-mail.."
                         onChange={onChange}
                     />
                     <label for="password" className="login-label">Password:</label>
@@ -54,7 +57,7 @@ const Login = props =>
                         className="login-text" 
                         value={userCredentials.password}
                         name="password" 
-                        placeholder="password.."
+                        placeholder="Password.."
                         onChange={onChange}
                     /><br/>
                 <div className="submit">
