@@ -1,9 +1,7 @@
 import React, {useState} from 'react';
 import './../../../css/General/navbar.css'
 import logo from "./../../../media/logo.png"
-// import accountIcon from "./../../../media/account-icon.png"
- import Searchbar from "./Searchbar"
-// import agenda from "./../../../media/agenda.png"
+import Searchbar from "./Searchbar"
 import { v4 as uuidv4 } from "uuid";
 import { Link } from "react-router-dom"
 
