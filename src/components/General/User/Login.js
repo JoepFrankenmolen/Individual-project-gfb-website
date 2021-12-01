@@ -33,10 +33,10 @@ const Login = props =>
   return (
     <div className="popup-login" onClick={props.handleClose}>
       <div className="box" onClick={empty}>
-        <span className="close-icon" onClick={props.handleClose}>x</span>
+        <div className="close-icon" onClick={props.handleClose}>x</div>
         <div className="top">
             <h1 className="Login-h1">Log in</h1>
-            <a className="Login-information">Log in using your email or register by hitting the register button</a><br/>
+            <a className="Login-information">Log in using your email or register by clicking the register button</a><br/>
         </div>
         <div className="forms">
             <form onSubmit={Login} className="login-form">

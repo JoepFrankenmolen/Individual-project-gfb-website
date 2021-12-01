@@ -14,35 +14,35 @@ const Navbar = props =>
           {
             id: uuidv4(),
             class:"home",
-            name:"home",
+            name:"Home",
             route:"/",
             isActive:false
           },
           {
             id: uuidv4(),
             class:"home",
-            name:"agenda",
+            name:"Agenda",
             route:"/agenda",
             isActive:false
           },
           {
             id: uuidv4(),
             class:"speltakken",
-            name:"speltakken",
+            name:"Groupbranches",
             route:"/speltakken",
             isActive:false
           },
           {
             id: uuidv4(),
             class:"fotoalbum",
-            name:"fotoalbum",
+            name:"Picturebook",
             route:"/fotoboek",
             isActive:false
           },
           {
             id: uuidv4(),
             class:"contact",
-            name:"contact",
+            name:"Contact",
             route:"/contact",
             isActive:false
           }

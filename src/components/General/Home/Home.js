@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from "axios";
 import PostList from './PostList';
 import Error404 from '../PageNotFound';
-import "./../../../css/home.css"
+import "./../../../css/General/home.css"
 
 const Home = () => {
 

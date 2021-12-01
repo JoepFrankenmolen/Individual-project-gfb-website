@@ -1,6 +1,6 @@
 import React from "react"
 import { Route, Switch } from 'react-router';
-import Home from './Posts/Home';
+import Home from './Home/Home';
 import Error404 from './PageNotFound';
 import AdminContainer from "../Admin/AdminContainer";
 import Login from "./User/Login";

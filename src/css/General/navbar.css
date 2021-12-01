@@ -10,26 +10,24 @@
 .logo{
     height: 100px;
     margin-left: 40px;
+    opacity: 0.93;
 }
 
 .navbar{
     display: flex;
     flex-direction:column ;
+    background:url("https://storage.googleapis.com/pictures-gfb/3-2021regenboog.png");
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-position: center;
 }
 
-/* .slideshow{
-    height: 250px;
-     position: relative; 
-    overflow: hidden;
-} */
 
 .overlay,.slideshow{
     height: 250px;
     display:flex;
     align-items: center;
     flex-direction:row ;
-    /* float: left;
-    position: absolute; */
     background: rgba(128, 125, 125, 0.466);
     
 }
@@ -68,18 +66,18 @@
 .individual-tab,.nav-link{
     font-size: 15px !important;
     text-decoration: underline;
-    color: white;
+    color: rgba(255, 255, 255, 0.788);
 }
 
 .individual-tab:hover{
-    background:gray;
+    background:rgba(128, 128, 128, 0.356);
 }
 
 
 .navigation{
     display: flex;
     flex-direction:row ;
-    background: rgb(34, 139, 34);
+    background-image: radial-gradient(rgb(47, 138, 47),rgb(17, 116, 17));
     height: 100%;
 }
 
