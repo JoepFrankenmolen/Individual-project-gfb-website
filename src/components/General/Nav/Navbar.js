@@ -4,9 +4,20 @@ import logo from "./../../../media/logo.png"
 import Searchbar from "./Searchbar"
 import { v4 as uuidv4 } from "uuid";
 import { Link } from "react-router-dom"
+import {RiArrowDropDownLine} from "react-icons/ri"
 
 const Navbar = props => 
 {
+    const [isVisible, setIsVisible] = useState(false);
+
+    const shown = {
+        display:"inline"
+    }
+
+    const hidden = {
+        display:"none"
+    }
+
     React.state = {
         navItems:[
           {
@@ -106,6 +117,16 @@ const Navbar = props =>
 
     }
 
+    const dropIcon = () =>
+    {
+        return "inline"
+    }
+
+    const toggleDropIcon = () =>
+    {
+        setIsVisible(!isVisible)
+    }
+
     //todo fix the slideshow
     //https://storage.googleapis.com/pictures-gfb/3-2021regenboog.png
     return (
@@ -132,11 +153,15 @@ const Navbar = props =>
             <div className="navigation">
                 <div className="navigation-list">
                     {React.state.navItems.map(nav =>(
-                        <div>
+                        <div className ="navigation-item" >
                             {/* {test(nav.class)}  find a way to store all the dropdown menu items*/}
-                            <div className="navigation-item">
-                                <Link to={clicked(nav)}  className="nav-item-link">{nav.name}</Link>
-                            </div>
+                            <Link to={clicked(nav)} className="remove-decoration navigation-link" {...Link/* onMouseIn={toggleDropIcon} onMouseOut={toggleDropIcon} */} > 
+                                <div className="inner-nav-div">
+                                    <a className="nav-item-link">{nav.name}</a>
+                                    {/*idk about this icon tho will see */}
+                                    {/* <RiArrowDropDownLine style={isVisible ? shown : hidden} size="35px" className="drop-down-icon"/> */}
+                                </div>
+                            </Link>
                         </div>
                     ))}
                 </div>

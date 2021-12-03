@@ -1,6 +1,8 @@
 import React, { useState} from 'react';
+import axios from 'axios';
 import './../../../css/General/login.css'
 
+axios.defaults.baseURL = process.env.REACT_APP_DOMAIN;
 
 const Login = props => 
 {
@@ -9,9 +11,63 @@ const Login = props =>
         password : ""
     });
 
-    const Login = (event) =>{
+    const [response, setResponse] = useState(null);
+    const [error, setError] = useState(null);
+    const [loading, setLoading] = useState(false);
+
+    const fetchData = async (params) => {
+        setLoading(true);
+        try {
+        const res = await axios.post("/login",params);
+        setResponse(res.data);
+        setError(null);
+        } catch (err) {
+        setError(err);
+        } finally {
+        setLoading(false);
+        }
+    };
+
+    const axiosDataResponse = () =>{
+        if(response === null && error === null && loading ===false)
+        {
+            return (
+                <br/>
+                );
+        }
+        return(
+            loading ? (
+                <div>Loading...</div>
+              ) : (
+                <div >
+                    {/*the like for example if you sucseeded it needs to go here */}
+                  {error && error.message}
+                  {response && response.title}
+                </div>
+              )
+        )
+        
+    }
+
+    function Login(event){
         event.preventDefault();
-        console.log(userCredentials.email + userCredentials.password)
+        // console.log(userCredentials.email + " "+
+        //     userCredentials.password)
+        console.log(process.env.REACT_APP_DOMAIN)
+        const {params} = {
+              method: 'POST',
+              url: '/login',
+              headers: {
+                accept: '*/*',
+                },
+              data: {
+                email:userCredentials.email,
+                password:userCredentials.password,
+              },
+         };
+
+        fetchData(params);
+        
     }
 
     const Register = (event) =>{
@@ -59,7 +115,11 @@ const Login = props =>
                         name="password" 
                         placeholder="Password.."
                         onChange={onChange}
-                    /><br/>
+                    />
+                    <div className="axios-response">
+                        {axiosDataResponse()}
+                    </div>
+                    
                 <div className="submit">
                     <input type="submit"className="login-submit" value="Login"/>
                 </div>
