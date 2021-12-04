@@ -1,6 +1,7 @@
 import React, { useState} from 'react';
 import axios from 'axios';
 import './../../../css/General/login.css'
+import { Redirect } from 'react-router';
 
 axios.defaults.baseURL = process.env.REACT_APP_DOMAIN;
 
@@ -11,9 +12,18 @@ const Login = props =>
         password : ""
     });
 
+    const [emailError, setEmailError] = useState("");
+    const [passwordError, setPasswordError] = useState("");
+
     const [response, setResponse] = useState(null);
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
+
+    // const [count, setCount] = useState(3);
+
+    const errorStyle = {
+        color:"red"
+    } 
 
     const fetchData = async (params) => {
         setLoading(true);
@@ -24,10 +34,12 @@ const Login = props =>
         } catch (err) {
         setError(err);
         } finally {
+            
         setLoading(false);
         }
     };
 
+    
     const axiosDataResponse = () =>{
         if(response === null && error === null && loading ===false)
         {
@@ -35,39 +47,70 @@ const Login = props =>
                 <br/>
                 );
         }
+        var feedback = "";
+        if(error != null)
+        {
+            feedback = "Log in failed"
+        }
+        else if(loading)
+        {
+            feedback = "Loading..."
+        }
+        else if(response != null)
+        {
+            // countdown();
+            feedback = "log in successful. "//"closing in: " + count
+            setUserData()
+        }
+
         return(
-            loading ? (
-                <div>Loading...</div>
-              ) : (
-                <div >
-                    {/*the like for example if you sucseeded it needs to go here */}
-                  {error && error.message}
-                  {response && response.title}
-                </div>
-              )
+            <div className="feedback">
+                <a>{feedback}</a>
+            </div>
         )
-        
+    }
+
+    const setUserData = () =>{
+        console.log(response)
+        localStorage.setItem("token",response.Authorization)
+        countdown();
     }
 
     function Login(event){
         event.preventDefault();
         // console.log(userCredentials.email + " "+
         //     userCredentials.password)
-        console.log(process.env.REACT_APP_DOMAIN)
-        const {params} = {
-              method: 'POST',
-              url: '/login',
-              headers: {
-                accept: '*/*',
-                },
-              data: {
+        if(userCredentials.email == "")
+        {
+            setEmailError("*Enter your E-mail addres")
+        }
+        else if(userCredentials.password =="")
+        {
+            setPasswordError("*Enter your Password")
+        }
+        else{
+            var params = {
                 email:userCredentials.email,
                 password:userCredentials.password,
-              },
-         };
+            }
+    
+            fetchData(params);
+        }
+    }
 
-        fetchData(params);
-        
+    function sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+      }
+
+    async function countdown(){
+        // for (let i = 3; i > 0; i--) {
+        //     setCount(i)
+        //     await sleep(3000);
+        //     console.log("test")
+        // }
+        // props.handleClose()
+        await sleep(500);
+        window.location.reload(false);
     }
 
     const Register = (event) =>{
@@ -96,7 +139,7 @@ const Login = props =>
         </div>
         <div className="forms">
             <form onSubmit={Login} className="login-form">
-                    <label for="email" className="login-label">E-mail address:</label>
+                    <label htmlFor="email" className="login-label">E-mail address:</label>
                     <input 
                         type="text" 
                         id="email" 
@@ -106,7 +149,8 @@ const Login = props =>
                         placeholder="E-mail.."
                         onChange={onChange}
                     />
-                    <label for="password" className="login-label">Password:</label>
+                    <p className="error-login">{emailError}</p><br/>
+                    <label htmlFor="password" className="login-label">Password:</label>
                     <input 
                         type="password" 
                         id="password" 
@@ -116,7 +160,8 @@ const Login = props =>
                         placeholder="Password.."
                         onChange={onChange}
                     />
-                    <div className="axios-response">
+                    <p className="error-login">{passwordError}</p>
+                    <div className="axios-response" style={error !=null ? errorStyle : null}>
                         {axiosDataResponse()}
                     </div>
                     

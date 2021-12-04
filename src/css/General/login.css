@@ -48,10 +48,10 @@
 }
 
 .login-label{
-  margin-left: 5%;
+  margin-left: 20px;
 } 
 
- .forms,.top,.login-form,.register-form {
+ .forms,.top,.login-form,.register-form,.axios-response,.feedback {
   width: 100%;
 }
 
@@ -74,6 +74,24 @@
 .login-text
 {
   width: calc(100% - 55px);
+}
+
+.feedback{
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.feedback a{
+  text-align: center;
+  width: 100%;
+}
+
+.error-login{
+  color:red;
+  font-size: 12px;
+  margin-top: -20px;
+  margin-left: 20px;
 }
 
 .register-form

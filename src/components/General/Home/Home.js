@@ -3,46 +3,70 @@ import axios from "axios";
 import PostList from './PostList';
 import Error404 from '../PageNotFound';
 import "./../../../css/General/home.css"
+import { useAxios } from 'use-axios-client';
+
+axios.defaults.baseURL = process.env.REACT_APP_DOMAIN;
 
 const Home = () => {
 
-  const baseURL = process.env.REACT_APP_POST;
+  const [response, setResponse] = useState(null);
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
 
-  const [posts,setPosts] = useState(null);
+  const fetchData = async () => {
+      setLoading(true);
+      try {
+      const res = await axios.get("/post");
+      setResponse(res.data);
+      setError(null);
+      } catch (err) {
+      setError(err);
+      } finally {
+          
+      setLoading(false);
+      }
+  };
 
-  useEffect(() => 
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+
+  const postContent = () =>{
+
+    if(response === null && error === null && loading ===false)
     {
-      console.log(baseURL)
-      setPostsAxios(baseURL);
-      
-    }, []);
+    }
 
-  const setPostsAxios = url =>
-  {
-    axios.get(url).then((response) => 
+    if(error != null)
     {
-      setPosts(response.data);
-    }).catch(error => {
       console.log(error)
-    });
-  }
+    }
+    else if(loading)
+    {
+      return(
+        <div className="post-center">
 
-  if(posts == null)
-  {
-    return (
-      <Error404
-        code={500}
-        message={"trying to connect to the server"}
-      />
-    )
+        </div>
+      )
+    }
+    else if(response !== null)
+    {
+      return(
+        <PostList
+          posts={response}
+        />
+      )
+    }
   }
 
   return (
   <div className="home">
     <div className="posts">
-    <PostList
-          posts={posts}
-      />
+      {postContent()}
+    </div>
+    <div className="information">
+
     </div>
   </div>
   )

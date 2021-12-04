@@ -6,10 +6,11 @@ import React, { useState} from 'react';
 import "./../../css/general.css"
 
 
-function App() {
+const App = ()=> {
 
   //const[isShowed,setShow] = useState(true)
   const [isOpen, setIsOpen] = useState(false);
+  const [userData, setUserData] = useState(null);
  
   const toggleLogin = () => {
     setIsOpen(!isOpen);

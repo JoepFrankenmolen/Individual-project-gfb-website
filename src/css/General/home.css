@@ -1,4 +1,4 @@
-.home{
+/* .home{
     overflow-y: scroll;
     height: 100%
 }
@@ -28,4 +28,23 @@
 
 /* .post_item{
 
-} */
+} */ 
+
+.home,.posts,.information,.post-list{
+    height: 100%;
+}
+
+.home{
+    margin-top: 9px;
+    display: flex;
+    flex-flow:row;
+}
+.information{
+    width: 30%;
+    min-width: 600px;
+    background: green;
+
+.posts{
+    width: 100%;
+}
+

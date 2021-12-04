@@ -1,14 +1,36 @@
-import React, {useState} from 'react';
+import React, {useState,useEffect} from 'react';
 import './../../../css/General/navbar.css'
 import logo from "./../../../media/logo.png"
 import Searchbar from "./Searchbar"
 import { v4 as uuidv4 } from "uuid";
 import { Link } from "react-router-dom"
 import {RiArrowDropDownLine} from "react-icons/ri"
+import accountIcon from "./../../../media/account-icon.png"
 
 const Navbar = props => 
 {
+    const [userName, setUserName] = useState(fetchUser());
     const [isVisible, setIsVisible] = useState(false);
+
+    function fetchUser(){
+        let username = "test"//localStorage.getItem("name")
+        if(localStorage.getItem("token") !== null && username !== null)
+        {
+            return username
+        }
+        return null
+        
+    }
+
+    async function logOut(){
+        localStorage.clear()
+        window.location.reload(false);
+    }
+
+    // useEffect(() => {
+    //     fetchUser();
+    //   }, []);
+    
 
     const shown = {
         display:"inline"
@@ -127,8 +149,41 @@ const Navbar = props =>
         setIsVisible(!isVisible)
     }
 
+    function account(){
+        if(userName !== null)
+        {
+            console.log("test")
+            return(
+                <div className="user-tabs">
+                    <div className="individual-tab" onClick={logOut}>
+                        <Link to="" className="nav-link"> <h2>Log out</h2> </Link>
+                    </div>
+                    <div className="individual-tab">
+                        <Link to='/account' className="nav-link account-link"> 
+                            <div className="account-icon-center">
+                                <img src={accountIcon} alt="account" class="accountIcon"/>
+                            </div>
+                            <h2>{userName}</h2> 
+                        </Link>
+                    </div>
+                </div>
+                
+            )
+        }
+        else
+        {
+            
+            return(
+                <div className="individual-tab">
+                    <h2 onClick={props.toggleLogin}>Log in/Register</h2>
+                </div>
+            )
+        }
+
+        
+    }
+
     //todo fix the slideshow
-    //https://storage.googleapis.com/pictures-gfb/3-2021regenboog.png
     return (
         <nav class="navbar">
             <div className="slideshow">
@@ -143,12 +198,9 @@ const Navbar = props =>
                         <div className="individual-tab">
                             <Link to="/member" className="nav-link" ><h2>Become a member</h2></Link>
                         </div>
-                        <div className="individual-tab">
-                            <h2 onClick={props.toggleLogin}>Log in/Register</h2>
-                        </div>
+                        {account()}
                     </div>
                 </div>
-                {/* <img className="nav-pictures" src="https://storage.googleapis.com/pictures-gfb/3-2021regenboog.png" alt="img"/> */}
             </div>
             <div className="navigation">
                 <div className="navigation-list">

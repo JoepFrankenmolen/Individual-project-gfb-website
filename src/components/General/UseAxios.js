@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
-axios.defaults.baseURL = process.env.REACT_APP_DOMAIN;
+axios.defaults.baseURL = "http://localhost:8080";
 
 
 // const { response, error, loading } = UseAxios({
