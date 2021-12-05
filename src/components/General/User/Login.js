@@ -73,6 +73,9 @@ const Login = props =>
     const setUserData = () =>{
         console.log(response)
         sessionStorage.setItem("token",response.Authorization)
+        sessionStorage.setItem("name","Joep")
+        sessionStorage.setItem("userId","bc0e3f67-3de0-4336-9edc-659289952832")
+        sessionStorage.setItem("role","ADMIN")
         countdown();
     }
 

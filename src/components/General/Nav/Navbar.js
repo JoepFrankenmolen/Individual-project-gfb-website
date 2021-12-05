@@ -13,7 +13,7 @@ const Navbar = props =>
     const [isVisible, setIsVisible] = useState(false);
 
     function fetchUser(){
-        let username = "test"//localStorage.getItem("name")
+        let username = sessionStorage.getItem("name")
         if(sessionStorage.getItem("token") !== null && username !== null)
         {
             return username

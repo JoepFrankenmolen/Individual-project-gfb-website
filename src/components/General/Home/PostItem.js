@@ -6,19 +6,6 @@ import {HiUserGroup} from "react-icons/hi"
 
   //{/*onClick={() => props.getGroupDetails(props.group.id)}*/}
 const PostItem = props => {
-
-    const picture = () =>{
-        //I dont like this lol
-        if(props.post.picture.pictureId != -1)
-        {
-            return(
-                <div className="post_picturediv">
-                    <img src={props.post.picture.url} alt={props.post.picture.name} className="post_picture" />
-                </div>
-            )
-        }
-    }
-
     return(
         <div className='post-item' >
             <div className="post-item-container">
@@ -34,7 +21,7 @@ const PostItem = props => {
                     <div className="post-calender post-icon"><HiUserGroup color="green" /></div>
                     <div className="post-text"><a className="post-atributes-item">Group: {props.post.group}</a></div>
                 </div>
-                {/* {picture()} */}
+                {/* the pcitures doesnt resize correctly like if I make the information tab bigger the picture get smaller ojeh and a button for read more*/}
                 <div className="post_content">
                     <div className="post-picture">
                         <img src={props.post.picture.url} alt={props.post.picture.name} className="post-image" />
@@ -42,10 +29,6 @@ const PostItem = props => {
                     <div className="post-content-text">
                         <a>{props.post.content}</a>
                     </div>
-                    
-                    {/*<b>{props.group.name}</b><br />
-                    <a>category: {props.group.category}</a><br />
-                    <a>is active: {props.group.active.toString()}</a>*/}
                 </div>
             </div>
         </div>        
