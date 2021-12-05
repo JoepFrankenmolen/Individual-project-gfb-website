@@ -72,7 +72,7 @@ const Login = props =>
 
     const setUserData = () =>{
         console.log(response)
-        localStorage.setItem("token",response.Authorization)
+        sessionStorage.setItem("token",response.Authorization)
         countdown();
     }
 

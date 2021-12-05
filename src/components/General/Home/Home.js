@@ -40,13 +40,17 @@ const Home = () => {
 
     if(error != null)
     {
-      console.log(error)
+      return(
+        <div className="post-center">
+            <a>Error loading posts</a>
+        </div>
+      )
     }
     else if(loading)
     {
       return(
         <div className="post-center">
-
+            <a>Loading posts</a>
         </div>
       )
     }

@@ -14,7 +14,7 @@ const Navbar = props =>
 
     function fetchUser(){
         let username = "test"//localStorage.getItem("name")
-        if(localStorage.getItem("token") !== null && username !== null)
+        if(sessionStorage.getItem("token") !== null && username !== null)
         {
             return username
         }
@@ -23,7 +23,7 @@ const Navbar = props =>
     }
 
     async function logOut(){
-        localStorage.clear()
+        sessionStorage.clear()
         window.location.reload(false);
     }
 
