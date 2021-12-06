@@ -1,5 +1,12 @@
 body {
   margin: 0;
-  font-family: "Open Sans"
+   /* font-family: "Open Sans"  */
+  /* font-family: "Montserrat"
+  font-family: "Lato"; */
 }
+
+*{
+  font-family: 'Vazir', sans-serif !important;
+}
+
 

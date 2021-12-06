@@ -1,36 +1,26 @@
 import React, { useState, useEffect } from 'react';
 import axios from "axios";
 import "./../../../css/General/home.css"
-import { useAxios } from 'use-axios-client';
+import useAxios from './../UseAxios';
 
 axios.defaults.baseURL = process.env.REACT_APP_DOMAIN;
 
 const Contact = () => {
 
-  const [response, setResponse] = useState(null);
-  const [error, setError] = useState(null);
-  const [loading, setLoading] = useState(false);
+    //load user here using some kind of magic
+    const [isVisible, setIsVisible] = useState(false);
 
-  const fetchData = async () => {
-      setLoading(true);
-      try {
-      const res = await axios.get("/post");
-      setResponse(res.data);
-      setError(null);
-      } catch (err) {
-      setError(err);
-      } finally {
-          
-      setLoading(false);
-      }
-  };
-
-  useEffect(() => {
-    fetchData();
-  }, []);
+    const { response, error, loading } = useAxios({
+        method: 'get',
+        url: '/con',
+        headers: {
+          Authorization: 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqb2VwLmZyYW5rZW5tb2xlbnNwYW1AZ21haWwuY29tIiwicm9sZSI6IkFETUlOIiwiZXhwIjoxNjM5NTgyODM5fQ.Xb_aWIWQVyNRmk23vVvzowa99-SU7nX9z90W915UPJj0dwOuUa-36FoR_8rC1o4XDuVlh1sotuh6eLWpRzpW4A',
+        },
+      });
+  
 
 
-  const postContent = () =>{
+  const ContactMessages = () =>{
 
     if(response === null && error === null && loading ===false)
     {
@@ -38,22 +28,25 @@ const Contact = () => {
 
     if(error != null)
     {
+        console.log("error")
       return(
         <div className="post-center">
-            <a>Error loading posts</a>
+            <a>Error loading converstations</a>
         </div>
       )
     }
     else if(loading)
     {
+        console.log("loading")
       return(
         <div className="post-center">
-            <a>Loading posts</a>
+            <a>Loading converstations</a>
         </div>
       )
     }
     else if(response !== null)
     {
+        console.log(response)
       return(
         // <PostList
         //   posts={response}
@@ -64,10 +57,11 @@ const Contact = () => {
   }
 
   return (
-  <div className="home">
-    <div className="posts">
+  <div className="contact">
+    <div className="conversations">
+        {ContactMessages()}
     </div>
-    <div className="information">
+    <div className="chat">
 
     </div>
   </div>

@@ -1,35 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import axios from "axios";
 import PostList from './PostList';
-import Error404 from '../PageNotFound';
 import "./../../../css/General/home.css"
-import { useAxios } from 'use-axios-client';
+import useAxios from './../UseAxios';
 
 axios.defaults.baseURL = process.env.REACT_APP_DOMAIN;
 
 const Home = () => {
 
-  const [response, setResponse] = useState(null);
-  const [error, setError] = useState(null);
-  const [loading, setLoading] = useState(false);
-
-  const fetchData = async () => {
-      setLoading(true);
-      try {
-      const res = await axios.get("/post");
-      setResponse(res.data);
-      setError(null);
-      } catch (err) {
-      setError(err);
-      } finally {
-          
-      setLoading(false);
-      }
-  };
-
-  useEffect(() => {
-    fetchData();
-  }, []);
+  const { response, error, loading } = useAxios({
+    method: 'get',
+    url: '/post',
+  });
 
 
   const postContent = () =>{
