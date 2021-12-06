@@ -7,7 +7,7 @@ import Login from "./User/Login";
 import Contact from "./Contact/Contact";
 import "./../../css/container.css"
 
-const ContentContainer = () => {
+const Container = () => {
 
 return (
     <div className="content_container">
@@ -25,4 +25,4 @@ return (
   )
 }
 
-export default ContentContainer
+export default Container

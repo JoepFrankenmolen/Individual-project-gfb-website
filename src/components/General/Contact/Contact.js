@@ -14,7 +14,7 @@ const Contact = () => {
         method: 'get',
         url: '/con',
         headers: {
-          Authorization: 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqb2VwLmZyYW5rZW5tb2xlbnNwYW1AZ21haWwuY29tIiwicm9sZSI6IkFETUlOIiwiZXhwIjoxNjM5NTgyODM5fQ.Xb_aWIWQVyNRmk23vVvzowa99-SU7nX9z90W915UPJj0dwOuUa-36FoR_8rC1o4XDuVlh1sotuh6eLWpRzpW4A',
+          Authorization: localStorage.getItem("token"),
         },
       });
   

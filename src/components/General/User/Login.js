@@ -73,9 +73,9 @@ const Login = props =>
     const setUserData = () =>{
         console.log(response)
         sessionStorage.setItem("token",response.Authorization)
-        sessionStorage.setItem("name","Joep")
-        sessionStorage.setItem("userId","bc0e3f67-3de0-4336-9edc-659289952832")
-        sessionStorage.setItem("role","ADMIN")
+        sessionStorage.setItem("name",response.name)
+        sessionStorage.setItem("userId",response.userId)
+        sessionStorage.setItem("role",response.role)
         countdown();
     }
 
@@ -83,7 +83,12 @@ const Login = props =>
         event.preventDefault();
         // console.log(userCredentials.email + " "+
         //     userCredentials.password)
-        if(userCredentials.email == "")
+        if(userCredentials.password =="" && userCredentials.password =="")
+        {
+          setEmailError("*Enter your E-mail addres")
+          setPasswordError("*Enter your Password")
+        }
+        else if(userCredentials.email == "")
         {
             setEmailError("*Enter your E-mail addres")
         }
@@ -91,6 +96,7 @@ const Login = props =>
         {
             setPasswordError("*Enter your Password")
         }
+        
         else{
             var params = {
                 email:userCredentials.email,

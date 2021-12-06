@@ -42,6 +42,7 @@
     background: rgba(0, 128, 0, 0.050);
     border-width: 1px;
     border-radius: 3.5px;
+    box-shadow: 3px 6px 14px #888888;
     height: 300px;
     width: 100%;
     margin:50px;
