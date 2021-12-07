@@ -42,7 +42,6 @@ const App = ()=> {
   }, []);
 
  const filter=(filter)=>{
-   
    if(filter.trim() === "")
    {
     filter = "null"

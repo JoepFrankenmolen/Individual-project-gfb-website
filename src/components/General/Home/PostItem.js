@@ -2,15 +2,15 @@ import React from 'react';
 import {FaUser} from "react-icons/fa"
 import {BsCalendar3}from "react-icons/bs"
 import {HiUserGroup} from "react-icons/hi"
-import { Link } from "react-router-dom"
+import { useHistory } from 'react-router-dom';
 
 
-
-  //{/**/}
 const PostItem = (props) => {
 
+    const history = useHistory();
+
     function postDetails(){
-        return "/posts-details/"+props.post.postId
+        history.push("/posts-details/"+props.post.postId); 
     }
 
     return(
@@ -36,9 +36,12 @@ const PostItem = (props) => {
                     <div className="post-content-text">
                         <a>{props.post.content}</a>
                     </div>
-                    <Link to={postDetails()} className="read-more"> 
-                    <h2>read more</h2>
-                    </Link>
+                </div>
+            </div>
+            {/* this is such a bad practice */}
+            <div className="post-readmore" >
+                <div className="readmore-button" onClick={postDetails}>
+                    <a>read more</a>
                 </div>
             </div>
         </div>        

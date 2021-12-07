@@ -148,7 +148,6 @@ const Navbar = props =>
     function account(){
         if(userName !== null)
         {
-            console.log("test")
             return(
                 <div className="user-tabs">
                     <div className="individual-tab" onClick={logOut}>

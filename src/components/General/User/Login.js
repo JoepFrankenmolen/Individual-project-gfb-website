@@ -76,6 +76,7 @@ const Login = props =>
         sessionStorage.setItem("name",response.name)
         sessionStorage.setItem("userId",response.userId)
         sessionStorage.setItem("role",response.role)
+        sessionStorage.setItem("groups",JSON.stringify(response.groups))
         countdown();
     }
 
