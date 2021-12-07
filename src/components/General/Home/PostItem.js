@@ -2,10 +2,17 @@ import React from 'react';
 import {FaUser} from "react-icons/fa"
 import {BsCalendar3}from "react-icons/bs"
 import {HiUserGroup} from "react-icons/hi"
+import { Link } from "react-router-dom"
 
 
-  //{/*onClick={() => props.getGroupDetails(props.group.id)}*/}
-const PostItem = props => {
+
+  //{/**/}
+const PostItem = (props) => {
+
+    function postDetails(){
+        return "/posts-details/"+props.post.postId
+    }
+
     return(
         <div className='post-item' >
             <div className="post-item-container">
@@ -29,6 +36,9 @@ const PostItem = props => {
                     <div className="post-content-text">
                         <a>{props.post.content}</a>
                     </div>
+                    <Link to={postDetails()} className="read-more"> 
+                    <h2>read more</h2>
+                    </Link>
                 </div>
             </div>
         </div>        

@@ -99,3 +99,12 @@ img {
 .post-content-text a{
     font-size: 20px;
 }
+
+.read-more{
+    width: 200%;
+    background: grey;
+}
+
+.read-more:hover{
+    cursor: pointer;
+}

@@ -4,6 +4,7 @@ import Home from './Home/Home';
 import Error404 from './PageNotFound';
 import AdminContainer from "../Admin/AdminContainer";
 import Login from "./User/Login";
+import PostDetails from "./../General/Home/PostDetails";
 import Contact from "./Contact/Contact";
 import "./../../css/container.css"
 
@@ -15,6 +16,7 @@ return (
           <Route path = "/admin*">
             <AdminContainer url="/admin"/>
            </Route>
+           <Route exact path = "/posts-details/*" component={PostDetails}/>
            <Route exact path = "/login" component={Login}/>
            <Route exact path = "/account" component={Login}/>
            <Route exact path = "/contact" component={Contact}/>
