@@ -6,21 +6,17 @@ import useAxios from './../UseAxios';
 
 axios.defaults.baseURL = process.env.REACT_APP_DOMAIN;
 
-const Home = () => {
+const Home = (props) => {
 
-  const { response, error, loading } = useAxios({
-    method: 'get',
-    url: '/post',
-  });
 
 
   const postContent = () =>{
 
-    if(response === null && error === null && loading ===false)
+    if(props.response === null && props.error === null && props.loading ===false)
     {
     }
 
-    if(error != null)
+    if(props.error != null)
     {
       return(
         <div className="post-center">
@@ -28,7 +24,7 @@ const Home = () => {
         </div>
       )
     }
-    else if(loading)
+    else if(props.loading)
     {
       return(
         <div className="post-center">
@@ -36,13 +32,25 @@ const Home = () => {
         </div>
       )
     }
-    else if(response !== null)
+    
+    else if(props.response !== null)
     {
-      return(
-        <PostList
-          posts={response}
-        />
-      )
+      if(props.response.length === 0)
+      {
+        return(
+          <div className="post-center">
+              <a>No posts found</a>
+          </div>
+        )
+      }
+      else
+      {
+        return(
+          <PostList
+            posts={props.response}
+          />
+        )
+      }
     }
   }
 

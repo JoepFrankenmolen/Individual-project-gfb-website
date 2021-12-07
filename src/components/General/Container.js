@@ -8,7 +8,7 @@ import PostDetails from "./../General/Home/PostDetails";
 import Contact from "./Contact/Contact";
 import "./../../css/container.css"
 
-const Container = () => {
+const Container = (props) => {
 
 return (
     <div className="content_container">
@@ -20,7 +20,13 @@ return (
            <Route exact path = "/login" component={Login}/>
            <Route exact path = "/account" component={Login}/>
            <Route exact path = "/contact" component={Contact}/>
-           <Route exact path = "/" component={Home}/>
+           <Route exact path = "/">
+              <Home
+                response={props.response}
+                error={props.error}
+                loading={props.loading}
+              />
+            </Route>
           <Route exact path = "/*" component={Error404}/>
         </Switch>
     </div>

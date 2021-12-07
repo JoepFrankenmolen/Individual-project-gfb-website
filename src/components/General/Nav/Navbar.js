@@ -134,10 +134,6 @@ const Navbar = props =>
     return nav.route
     }
 
-    const filter = () =>
-    {
-
-    }
 
     const dropIcon = () =>
     {
@@ -219,7 +215,7 @@ const Navbar = props =>
                 </div>
                 <div className="navigation-searchbar"></div>
                 <div className="inner-navigation-searchbar">
-                    <Searchbar filter={filter}/>
+                    <Searchbar filter={props.filter}/>
                 </div>
             </div>
         </nav>
