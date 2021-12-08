@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from "axios";
-import "./../../../css/General/home.css"
+import "./contact.css";
+// import "./../../../css/General/home.css"
 import useAxios from './../UseAxios';
 
 axios.defaults.baseURL = process.env.REACT_APP_DOMAIN;
@@ -58,11 +59,16 @@ const Contact = () => {
 
   return (
   <div className="contact">
-    <div className="conversations">
-        {ContactMessages()}
-    </div>
-    <div className="chat">
+    <div className="contact-messaging">
+      <div className="start-chat">
+          {ContactMessages()}
+      </div>
+      <div className="chat-options">
 
+      </div>
+      <div className="chat">
+
+      </div>
     </div>
   </div>
   )

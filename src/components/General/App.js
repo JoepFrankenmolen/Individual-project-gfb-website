@@ -11,7 +11,6 @@ axios.defaults.baseURL = process.env.REACT_APP_DOMAIN;
 const App = ()=> {
     //const[isShowed,setShow] = useState(true)
   const [isOpen, setIsOpen] = useState(false);
-  const [userData, setUserData] = useState(null);///////////////////////NEEDS TO BE DONE
 
   const [response, setResponse] = useState(null);
   const [error, setError] = useState(null);

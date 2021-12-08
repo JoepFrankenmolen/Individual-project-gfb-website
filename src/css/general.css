@@ -31,6 +31,7 @@ input[type=submit] {
 #root{
   height: 100%;
   width: 100%;
+  max-width: 100% !important;
 }
 
 /* deze navbar werkt dus zowiezo niet op de telefoon ik hoop dat je dat weet. tuurlijk weet ik dat want ik ben zo kapot slim */

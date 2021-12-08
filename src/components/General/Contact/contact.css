@@ -1,0 +1,13 @@
+.contact,.contact-messaging{
+    height: 100%;
+    
+}
+
+.contact,.contact-messaging{
+    width: 100%;
+}
+
+.contact-messaging{
+    margin: 10px;
+    background: grey;
+}

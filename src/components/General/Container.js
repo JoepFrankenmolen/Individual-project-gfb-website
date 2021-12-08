@@ -1,4 +1,4 @@
-import React from "react"
+import React, {useState} from "react"
 import { Route, Switch } from 'react-router';
 import Home from './Home/Home';
 import Error404 from './PageNotFound';
@@ -10,17 +10,19 @@ import "./../../css/container.css"
 
 const Container = (props) => {
 
-return (
+    const [userData, setUserData] = useState(null);///////////////////////NEEDS TO BE DONE
+
+  return (
     <div className="content_container">
         <Switch>
           <Route path = "/admin*">
             <AdminContainer url="/admin"/>
-           </Route>
-           <Route exact path = "/posts-details/*" component={PostDetails}/>
-           <Route exact path = "/login" component={Login}/>
-           <Route exact path = "/account" component={Login}/>
-           <Route exact path = "/contact" component={Contact}/>
-           <Route exact path = "/">
+          </Route>
+          <Route exact path = "/posts-details/*" component={PostDetails}/>
+          <Route exact path = "/login" component={Login}/>
+          <Route exact path = "/account" component={Login}/>
+          <Route exact path = "/contact" component={Contact}/>
+          <Route exact path = "/">
               <Home
                 response={props.response}
                 error={props.error}
