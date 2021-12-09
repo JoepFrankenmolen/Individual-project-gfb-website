@@ -6,6 +6,15 @@ import useAxios from './../UseAxios';
 
 axios.defaults.baseURL = process.env.REACT_APP_DOMAIN;
 
+{/* <optgroup label="Swedish Cars">
+  <option value="volvo">Volvo</option>
+  <option value="saab">Saab</option>
+</optgroup>
+<optgroup label="German Cars">
+  <option value="mercedes">Mercedes</option>
+  <option value="audi">Audi</option>
+</optgroup> */}
+
 const Contact = () => {
 
     //load user here using some kind of magic
@@ -22,6 +31,25 @@ const Contact = () => {
 
 
   const ContactMessages = () =>{
+
+    return(
+      <div className="chose-chat-box center">
+          <form action="/action_page.php">
+            <label for="cars">Chose a group to chat with:</label>
+            <select name="cars" id="cars">
+              <optgroup label="Swedish Cars">
+                <option value="volvo">Volvo</option>
+                <option value="saab">Saab</option>
+              </optgroup>
+              <optgroup label="German Cars">
+                <option value="mercedes">Mercedes</option>
+                <option value="audi">Audi</option>
+              </optgroup>
+            </select>
+          <input type="submit" value="Submit"/>
+        </form>
+      </div>
+    )
 
     if(response === null && error === null && loading ===false)
     {
@@ -60,7 +88,7 @@ const Contact = () => {
   return (
   <div className="contact">
     <div className="contact-messaging">
-      <div className="start-chat">
+      <div className="start-chat center">
           {ContactMessages()}
       </div>
       <div className="chat-options">
