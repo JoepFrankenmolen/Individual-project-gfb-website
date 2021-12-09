@@ -3,11 +3,18 @@
     
 }
 
-.contact,.contact-messaging{
+.contact,.start-chat,.chat-options,.chat{
     width: 100%;
 }
 
 .contact-messaging{
+    display: flex;
+    flex-direction: row;
+    width: calc(100% - 20px);
     margin: 10px;
     background: grey;
+}
+
+.start-chat{
+    background: green;
 }
