@@ -6,7 +6,8 @@ body {
 }
 
 *{
-  font-family: 'Vazir', sans-serif !important;
+ /* font-family: 'Vazir', sans-serif !important;*/
+ font-family: Arial, Helvetica, sans-serif;
 }
 
 

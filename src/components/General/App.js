@@ -6,6 +6,8 @@ import React, { useState, useEffect} from 'react';
 import "./../../css/general.css"
 import axios from 'axios';
 
+//https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Values_and_units
+
 axios.defaults.baseURL = process.env.REACT_APP_DOMAIN;
 
 const App = ()=> {
