@@ -15,6 +15,7 @@ const Contact = () =>
   const [stompClient, setStompClient] = useState(null);
   const [startChatId, setStartChatId]=useState("-1"); 
   const [messageText,setMessageText] = useState("");
+  const [messages, setRecievedMessages] = useState([]);
 
   //creating the chat
   const [createChatResponse, setCreateChatResponse] = useState(null);
@@ -68,12 +69,6 @@ const Contact = () =>
   }
 
   async function countdown(){
-      // for (let i = 3; i > 0; i--) {
-      //     setCount(i)
-      //     await sleep(3000);
-      //     console.log("test")
-      // }
-      // props.handleClose()
       await sleep(500);
       window.location.reload(false);
   }
@@ -104,10 +99,6 @@ const Contact = () =>
         setCreateChatLoading(false);
       }
     }
-  }
-
-  const addMessage = () =>{
-
   }
 
   const addChatResponse = () =>{
@@ -264,6 +255,40 @@ const Contact = () =>
     }
   }
 
+// send the data using Stomp
+function sendMessage(e) {
+  e.preventDefault()
+   if(/*user != null && */messageText != "" && messageResponse != null)
+  {
+    console.log(messageText)
+    stompClient.send("/app/create",{},JSON.stringify({
+      'conversationId':messageResponse.conversationId,
+      'userId': sessionStorage.getItem("userId"),
+      'message': messageText
+    }))//"/app/hello", {}, JSON.stringify({'name': msgToSend}));
+  
+  }
+}
+
+const loadMessages = () =>{
+  return(
+    messages.map((message)=>(
+      <div className='message-box'>
+        <b>{message.userName}: </b>
+        <a>{message.message}</a>
+      </div>
+      ))
+  )
+}
+
+const onChange = e => {
+  setMessageText(e.target.value)
+}
+  const onMessageReceived = (data) =>{
+    console.log(data.body)
+    setRecievedMessages(messages => [...messages, JSON.parse(data.body)])
+  }
+
   const messageContainer = () =>{
     if(messageResponse === null && messageError === null && messageLoading ===false)
     {
@@ -306,6 +331,7 @@ const Contact = () =>
     { 
       if(stompClient == null)
       {
+        setRecievedMessages(messageResponse.messages)
         // use SockJS as the websocket client
         const socket = SockJS(process.env.REACT_APP_DOMAIN+"/ws");
         // Set stomp to use websockets
@@ -313,35 +339,31 @@ const Contact = () =>
         // connect to the backend
         stompClient.connect({}, () => {
           // subscribe to the backend
-          stompClient.subscribe('/topic/message', (data) => {
+          stompClient.subscribe('/topic/message/' + messageResponse.conversationId, (data) => {
             //console.log(data);
-            // onMessageReceived(data);
+            onMessageReceived(data);
           });
         });
         // maintain the client for sending and receiving
         setStompClient(stompClient);
       }
+
       return(
         <div className="message-container">
           <div className='messages'>
             <div className='message-title'>
               <h1>current chat with: </h1>
             </div>
-            {messageResponse.messages.map((message)=>(
-              <div className='message-box'>
-                <b>{message.userName}: </b>
-                <a>{message.message}</a>
-              </div>
-              ))}
+            {loadMessages()}
           </div>
-          <form onSubmit={addMessage} className="message-form">
+          <form onSubmit={sendMessage} className="message-form">
             <input 
                 type="text" 
                 className="message-text" 
                 value={messageText}
                 name="message" 
                 placeholder="message.."
-                onChange={(target) => setMessageText(target.value)}
+                onChange={onChange}
             />         
             <div className="message-submit-div">
                 <input type="submit"className="message-submit" value="Send message"/>
