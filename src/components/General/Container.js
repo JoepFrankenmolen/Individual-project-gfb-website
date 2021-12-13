@@ -5,7 +5,7 @@ import Error404 from './PageNotFound';
 import AdminContainer from "../Admin/AdminContainer";
 import Login from "./User/Login";
 import PostDetails from "./../General/Home/PostDetails";
-import Contact from "./Contact/Contact";
+import Contact from "./Contact/Chat/Chat";
 import "./../../css/container.css"
 
 const Container = (props) => {

@@ -61,6 +61,18 @@ body,html,#root,.app{
   justify-content: center;
 }
 
+.center-v{
+  display: flex;
+  justify-content: center;
+}
+
+.center-h{
+  display: flex;
+  align-items: center;
+}
+
+
+
 .post-center a{
   font-size: 30px;
 }

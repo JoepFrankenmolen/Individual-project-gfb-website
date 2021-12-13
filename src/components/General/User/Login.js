@@ -1,7 +1,7 @@
 import React, { useState} from 'react';
 import axios from 'axios';
 import './../../../css/General/login.css'
-import { Redirect } from 'react-router';
+// import { Redirect } from 'react-router';
 
 axios.defaults.baseURL = process.env.REACT_APP_DOMAIN;
 
@@ -48,7 +48,7 @@ const Login = props =>
                 );
         }
         var feedback = "";
-        if(error != null)
+        if(error !== null)
         {
             feedback = "Log in failed"
         }
@@ -56,7 +56,7 @@ const Login = props =>
         {
             feedback = "Loading..."
         }
-        else if(response != null)
+        else if(response !== null)
         {
             // countdown();
             feedback = "log in successful. "//"closing in: " + count
@@ -84,16 +84,16 @@ const Login = props =>
         event.preventDefault();
         // console.log(userCredentials.email + " "+
         //     userCredentials.password)
-        if(userCredentials.password =="" && userCredentials.password =="")
+        if(userCredentials.password === "" && userCredentials.password === "")
         {
           setEmailError("*Enter your E-mail addres")
           setPasswordError("*Enter your Password")
         }
-        else if(userCredentials.email == "")
+        else if(userCredentials.email === "")
         {
             setEmailError("*Enter your E-mail addres")
         }
-        else if(userCredentials.password =="")
+        else if(userCredentials.password === "")
         {
             setPasswordError("*Enter your Password")
         }
