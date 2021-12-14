@@ -18,6 +18,7 @@ contact-chat-container
                             chats-chats-icon
         messages-container
             messages-box
+                (messages-title-response)
                 messages-box-flex
                     messages-title(center)
                     messages-messages

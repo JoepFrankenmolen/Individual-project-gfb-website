@@ -1,16 +1,123 @@
-import React, {useState,useEffect} from 'react';
+import React, {useState} from 'react';
 import './../../../css/General/navbar.css'
-import logo from "./../../../media/logo.png"
+import logo from "./../../../media/logo.svg"
 import Searchbar from "./Searchbar"
 import { v4 as uuidv4 } from "uuid";
-import { Link } from "react-router-dom"
-import {RiArrowDropDownLine} from "react-icons/ri"
+import {useHistory } from "react-router-dom"
 import accountIcon from "./../../../media/account-icon.png"
+import Dropdown from './Dropdown/Dropdown';
 
 const Navbar = props => 
 {
     const [userName, setUserName] = useState(fetchUser());
-    const [isVisible, setIsVisible] = useState(false);
+    const history = useHistory();
+
+    const navItems = 
+    [
+        {
+            id: uuidv4(),
+            title:"Home",
+            route:"/",
+            subPages:
+            [
+                {
+                    id: uuidv4(),
+                    title:"agenda",
+                    route:"/agenda",
+                },
+                {
+                    id: uuidv4(),
+                    title:"membership",
+                    route:"/member",
+                },
+                {
+                    id: uuidv4(),
+                    title:"internship",
+                    route:"/intern",
+                },
+                {
+                    id: uuidv4(),
+                    title:"scoutfit",
+                    route:"/scoutfit",
+                },
+                {
+                    id: uuidv4(),
+                    title:"social security",
+                    route:"/sc",
+                }
+            ]
+        },
+        {
+            id: uuidv4(),
+            title:"Groupbranches",
+            route:"/speltakken",
+            subPages:
+            [
+                {//the way this will be done is by fetching the name of the group and displaying al the posts witht he same name group name on the page
+                    id: uuidv4(),
+                    title:"bevers",
+                    route:"/speltakken/bevers",
+                }
+            ]
+        },
+        {
+            id: uuidv4(),
+            title:"Picturebook",
+            route:"/fotoboek",
+            subPages:
+            [
+                {//you can select a year but it is nowhere near implemented yet it will be fetched from the api
+                    id: uuidv4(),
+                    title:"2016",
+                    route:"/fotoboek/2016",
+                }
+            ]
+        },
+        {
+            id: uuidv4(),
+            title:"contact",
+            route:"/contact",
+            subPages:
+            [
+                {
+                    id: uuidv4(),
+                    title:"chat",
+                    route:"/contact/chat",
+                }
+            ]
+        },
+        {//in the furute this will be an api call and I will just feed you back to what you have premmision to  so this wont show as well as the admin section
+            id: uuidv4(),
+            title:"editor",
+            route:"/editor",
+            subPages:
+            [
+                {
+                    id: uuidv4(),
+                    title:"post",
+                    route:"/editor/post",
+                }
+            ]
+        },
+        {
+            id: uuidv4(),
+            title:"admin",
+            route:"/admin",
+            subPages:
+            [
+                {
+                    id: uuidv4(),
+                    title:"groups",
+                    route:"/admin/groups",
+                },
+                {
+                    id: uuidv4(),
+                    title:"users",
+                    route:"/admin/users",
+                }
+            ]
+        }
+    ]
 
     function fetchUser(){
         let username = sessionStorage.getItem("name")
@@ -24,196 +131,72 @@ const Navbar = props =>
 
     async function logOut(){
         sessionStorage.clear()
+        history.push("");
         window.location.reload(false);
     }
-
-    // useEffect(() => {
-    //     fetchUser();
-    //   }, []);
     
-
-    const shown = {
-        display:"inline"
+    const redirect = (link) =>  {
+        history.push(link); 
     }
 
-    const hidden = {
-        display:"none"
-    }
-
-    React.state = {
-        navItems:[
-          {
-            id: uuidv4(),
-            class:"home",
-            name:"Home",
-            route:"/",
-            isActive:false
-          },
-          {
-            id: uuidv4(),
-            class:"home",
-            name:"Agenda",
-            route:"/agenda",
-            isActive:false
-          },
-          {
-            id: uuidv4(),
-            class:"speltakken",
-            name:"Groupbranches",
-            route:"/speltakken",
-            isActive:false
-          },
-          {
-            id: uuidv4(),
-            class:"fotoalbum",
-            name:"Picturebook",
-            route:"/fotoboek",
-            isActive:false
-          },
-          {
-            id: uuidv4(),
-            class:"contact",
-            name:"Contact",
-            route:"/contact",
-            isActive:false
-          }
-        //   {
-        //     id: uuidv4(),
-        //     class:"editor",
-        //     name:"editor",
-        //     route:"/editor",
-        //     isActive:false
-        //   },
-        //   {
-        //     id: uuidv4(),
-        //     class:"editor",
-        //     name:"my-posts",
-        //     route:"/myPosts",
-        //     isActive:false
-        //   },
-        //   {
-        //     id: uuidv4(),
-        //     class:"admin",
-        //     name:"admin",
-        //     route:"/admin",
-        //     isActive:false
-        //   },
-        //   {
-        //     id: uuidv4(),
-        //     class:"admin",
-        //     name:"users",
-        //     route:"/admin/users",
-        //     isActive:false
-        //   },
-        //   {
-        //     id: uuidv4(),
-        //     class:"admin",
-        //     name:"groups",
-        //     route:"/admin/groups",
-        //     isActive:false
-        //   },
-        //   {
-        //     id: uuidv4(),
-        //     class:"admin",
-        //     name:"pictures",
-        //     route:"/admin/pictures",
-        //     isActive:false
-        //   },
-        //   {
-        //     id: uuidv4(),
-        //     class:"admin",
-        //     name:"posts",
-        //     route:"/admin/posts",
-        //     isActive:false
-        //   }
-        ]//this sucks
-      }
-    
-    const clicked = nav =>  {
-    nav.isActive = true
-    return nav.route
-    }
-
-
-    const dropIcon = () =>
-    {
-        return "inline"
-    }
-
-    const toggleDropIcon = () =>
-    {
-        setIsVisible(!isVisible)
-    }
-
-    function account(){
+    function slideshowLinks(){
         if(userName !== null)
         {
             return(
-                <div className="user-tabs">
-                    <div className="individual-tab" onClick={logOut}>
-                        <Link to="" className="nav-link"> <h2>Log out</h2> </Link>
-                    </div>
-                    <div className="individual-tab">
-                        <Link to='/account' className="nav-link account-link"> 
-                            <div className="account-icon-center">
-                                <img src={accountIcon} alt="account" class="accountIcon"/>
-                            </div>
-                            <h2>{userName}</h2> 
-                        </Link>
-                    </div>
+            <div className="navbar-slideshow-container">
+                <div className="navbar-slideshow-link" onClick={() => redirect("")}>
+                    <h2 className='navbar-slideshow-link-text'>Home</h2>
                 </div>
-                
+                <div className="navbar-slideshow-link" onClick={() => redirect("/member")}>
+                    <h2 className='navbar-slideshow-link-text'>Become a member</h2>
+                </div>
+                <div className="navbar-slideshow-link" onClick={logOut}>
+                    <h2 className='navbar-slideshow-link-text'>Log out</h2>
+                </div>
+                <div className="navbar-slideshow-link navbar-slideshow-link-icon" onClick={()=>redirect('/account')}>
+                    <img src={accountIcon} alt="account" class="navbar-slideshow-link-user-icon"/>
+                    <h2 className='navbar-slideshow-link-text'>{userName}</h2> 
+                </div>
+            </div>             
             )
         }
         else
         {
-            
             return(
-                <div className="individual-tab">
-                    <h2 onClick={props.toggleLogin}>Log in/Register</h2>
+            <div className="navbar-slideshow-container">
+                <div className="navbar-slideshow-link" onClick={() => redirect("")}>
+                    <h2 className='navbar-slideshow-link-text'>Home</h2>
                 </div>
+                <div className="navbar-slideshow-link" onClick={() => redirect("/member")}>
+                    <h2 className='navbar-slideshow-link-text'>Become a member</h2>
+                </div>
+                <div className="navbar-slideshow-link">
+                    <h2  className='navbar-slideshow-link-text' onClick={props.toggleLogin}>Log in/Register</h2>
+                </div>
+            </div>
             )
         }
-
-        
     }
+    
 
     //todo fix the slideshow
     return (
         <nav class="navbar">
-            <div className="slideshow">
-                <div className="overlay">
-                    <div className="logo">
-                        <Link to=""><img src={logo} alt="logo" class="logo"/></Link>
+            <div className="navbar-slideshow">
+                <div className="navbar-slideshow-overlay">
+                    <div className="navbar-slideshow-logo-container" onClick={() => redirect("")}>
+                        <img src={logo} alt="logo" class="navbar-slideshow-logo"/>
                     </div>
-                    <div className="tabs">
-                        <div className="individual-tab" >
-                            <Link to="" className="nav-link" ><h2>Home</h2></Link>
-                        </div>
-                        <div className="individual-tab">
-                            <Link to="/member" className="nav-link" ><h2>Become a member</h2></Link>
-                        </div>
-                        {account()}
-                    </div>
+                   {slideshowLinks()}
                 </div>
             </div>
-            <div className="navigation">
-                <div className="navigation-list">
-                    {React.state.navItems.map(nav =>(
-                        <div className ="navigation-item" >
-                            {/* {test(nav.class)}  find a way to store all the dropdown menu items*/}
-                            <Link to={clicked(nav)} className="remove-decoration navigation-link" {...Link/* onMouseIn={toggleDropIcon} onMouseOut={toggleDropIcon} */} > 
-                                <div className="inner-nav-div">
-                                    <a className="nav-item-link">{nav.name}</a>
-                                    {/*idk about this icon tho will see */}
-                                    {/* <RiArrowDropDownLine style={isVisible ? shown : hidden} size="35px" className="drop-down-icon"/> */}
-                                </div>
-                            </Link>
-                        </div>
-                    ))}
+            <div className="navbar-navigation-container">
+                <div className="navbar-navigation">
+                    <Dropdown
+                        navItems={navItems}
+                    />
                 </div>
-                <div className="navigation-searchbar"></div>
-                <div className="inner-navigation-searchbar">
+                <div className="navbar-navigation-searchbar">
                     <Searchbar filter={props.filter}/>
                 </div>
             </div>

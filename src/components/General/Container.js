@@ -5,7 +5,8 @@ import Error404 from './PageNotFound';
 import AdminContainer from "../Admin/AdminContainer";
 import Login from "./User/Login";
 import PostDetails from "./../General/Home/PostDetails";
-import Contact from "./Contact/Chat/Chat";
+import Chat from "./Contact/Chat/Chat";
+import Contact from "./Contact/Contact";
 import "./../../css/container.css"
 
 const Container = (props) => {
@@ -22,6 +23,7 @@ const Container = (props) => {
           <Route exact path = "/login" component={Login}/>
           <Route exact path = "/account" component={Login}/>
           <Route exact path = "/contact" component={Contact}/>
+          <Route exact path = "/contact/chat" component={Chat}/>
           <Route exact path = "/">
               <Home
                 response={props.response}
