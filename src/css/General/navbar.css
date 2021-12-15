@@ -138,6 +138,7 @@
 .dropdown-item{
     float: left;
     overflow: hidden;
+    
 }
 
 .dropdown-item:hover{
@@ -151,9 +152,17 @@
     display: none;
     position: absolute;
     background-color: #c0bebe;
-    min-width: 160px;
+    /* width: calc(initial + 50) !important; */
+    min-width:160px;
+    /*nope min-width: calc(100% + 80px); */
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
+}
+
+.dropdown-item:hover .dropdown-content{
+    display: block;
+    background:rgb(205, 206, 205);
+    width: inherit; 
 }
 
 /*this one/////////////////////////////////////////////////////////////*/
@@ -183,6 +192,7 @@
 .dropdown-button{
     display: flex;
     align-items: center;
+    width: 100%;
 }
 
 .dropdown-caret{
@@ -190,8 +200,10 @@
     color:rgba(255, 255, 255, 0.753);
 }
 
-/*this one/////////////////////////////////////////////////////////////*/
+/* this one/////////////////////////////////////////////////////////////
 .dropdown-item:hover .dropdown-content{
     display: block;
     background:rgb(205, 206, 205);
+    width: inherit; 
 }
+*/
