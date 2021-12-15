@@ -15,6 +15,16 @@ const PostDetails = () => {
       url: '/post/'+ id,
     }); 
 
+    const picture = () =>{
+      if(response.hasOwnProperty("picture"))
+      {
+        return (
+          <img src={response.picture.url} alt={response.picture.name} className="post-body-picture" />
+        )
+      }
+      
+      
+    }
 
     if(response === null && error === null && loading ===false)
     {
@@ -59,7 +69,7 @@ const PostDetails = () => {
                   </h1>
                 </div>
                 <div className="post-body">
-                  <img src={response.picture.url} alt={response.picture.name} className="post-body-picture" />
+                  {picture()}
                   <p className="post-body-text">
                     {response.content}
                   </p>
