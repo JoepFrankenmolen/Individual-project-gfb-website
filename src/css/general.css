@@ -51,7 +51,7 @@ body,html,#root,.app{
   height: 100%;
 }
 
-.post-center,.center{
+.center{
   height: 50%;
   display: flex;
   align-items: center;

@@ -103,7 +103,10 @@ const Login = props =>
                 email:userCredentials.email,
                 password:userCredentials.password,
             }
-    
+            
+            setResponse(null)
+            setError(null)
+            setLoading(null)
             fetchData(params);
         }
     }

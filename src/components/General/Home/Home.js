@@ -19,7 +19,7 @@ const Home = (props) => {
     if(props.error != null)
     {
       return(
-        <div className="post-center">
+        <div className="center">
             <a>Error loading posts</a>
         </div>
       )
@@ -27,7 +27,7 @@ const Home = (props) => {
     else if(props.loading)
     {
       return(
-        <div className="post-center">
+        <div className="center">
             <a>Loading posts</a>
         </div>
       )
@@ -38,7 +38,7 @@ const Home = (props) => {
       if(props.response.length === 0)
       {
         return(
-          <div className="post-center">
+          <div className="center">
               <a>No posts found</a>
           </div>
         )

@@ -8,10 +8,11 @@
     
 
     width: 100%;
-    /* height: calc(100% - 300px); */
+    /* height: calc(100% - 300px) !important; */
     height: 100%; /*the navbar needs a redesign*/
     margin: 0;
     padding: 0;
 
 
 }
+
