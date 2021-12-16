@@ -14,9 +14,7 @@ const DropdownItem = props =>
 
     useEffect(() => {
         var temp =  document.getElementById(props.item.id).clientWidth
-        console.log(temp)
         temp = temp + 50
-        console.log(temp)
         setWidth(temp)
         // console.log(width)
         // console.log(document.getElementById(props.item.id).clientWidth)
