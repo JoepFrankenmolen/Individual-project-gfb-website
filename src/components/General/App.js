@@ -64,12 +64,13 @@ const App = ()=> {
 
   return (
     <div className="app">
-      {isOpen && 
-        <Login
-          handleClose={toggleLogin}
-        />
-      }
       <Router>
+        {isOpen && 
+          <Login
+            handleClose={toggleLogin}
+          />
+        }
+      
         <Navbar
           toggleLogin={toggleLogin}
           filter={filter}

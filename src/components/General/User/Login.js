@@ -1,6 +1,7 @@
 import React, { useState} from 'react';
 import axios from 'axios';
 import './../../../css/General/login.css'
+import {Router, useHistory } from "react-router-dom"
 // import { Redirect } from 'react-router';
 
 axios.defaults.baseURL = process.env.REACT_APP_DOMAIN;
@@ -12,6 +13,7 @@ const Login = props =>
         password : ""
     });
 
+    const history = useHistory();
     const [emailError, setEmailError] = useState("");
     const [passwordError, setPasswordError] = useState("");
 
@@ -126,9 +128,10 @@ const Login = props =>
         window.location.reload(false);
     }
 
-    const Register = (event) =>{
+    function Register(event){
         event.preventDefault();
-        console.log(userCredentials.email + userCredentials.password)
+        history.push("/register");
+        props.handleClose()
     }
 
     const onChange = e => {
@@ -152,31 +155,31 @@ const Login = props =>
         </div>
         <div className="forms">
             <form onSubmit={Login} className="login-form">
-                    <label htmlFor="email" className="login-label">E-mail address:</label>
-                    <input 
-                        type="text" 
-                        id="email" 
-                        className="login-text" 
-                        value={userCredentials.email}
-                        name="email" 
-                        placeholder="E-mail.."
-                        onChange={onChange}
-                    />
-                    <p className="error-login">{emailError}</p><br/>
-                    <label htmlFor="password" className="login-label">Password:</label>
-                    <input 
-                        type="password" 
-                        id="password" 
-                        className="login-text" 
-                        value={userCredentials.password}
-                        name="password" 
-                        placeholder="Password.."
-                        onChange={onChange}
-                    />
-                    <p className="error-login">{passwordError}</p>
-                    <div className="axios-response" style={error !=null ? errorStyle : null}>
-                        {axiosDataResponse()}
-                    </div>
+                <label htmlFor="email" className="login-label">E-mail address:</label>
+                <input 
+                    type="text" 
+                    id="email" 
+                    className="login-text" 
+                    value={userCredentials.email}
+                    name="email" 
+                    placeholder="E-mail.."
+                    onChange={onChange}
+                />
+                <p className="error-login">{emailError}</p><br/>
+                <label htmlFor="password" className="login-label">Password:</label>
+                <input 
+                    type="password" 
+                    id="password" 
+                    className="login-text" 
+                    value={userCredentials.password}
+                    name="password" 
+                    placeholder="Password.."
+                    onChange={onChange}
+                />
+                <p className="error-login">{passwordError}</p>
+                <div className="axios-response" style={error !=null ? errorStyle : null}>
+                    {axiosDataResponse()}
+                </div>
                     
                 <div className="submit">
                     <input type="submit"className="login-submit" value="Login"/>

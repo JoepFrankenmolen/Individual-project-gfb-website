@@ -109,11 +109,11 @@ input[type="submit"].login-submit{
 }
 
 
-h1{
+.top h1{
     margin-top: -2%;
 }
 
-a{
+.top a{
     text-align: center;
     font-size: 15px;
 }

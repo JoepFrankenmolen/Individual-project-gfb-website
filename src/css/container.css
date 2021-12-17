@@ -8,11 +8,15 @@
     
 
     width: 100%;
-    /* height: calc(100% - 300px) !important; */
-    height: 100%; /*the navbar needs a redesign*/
+    height: calc(100% - 300px) !important; 
+    height: 100%;
     margin: 0;
     padding: 0;
 
 
+}
+
+h1{
+    margin: 0;
 }
 
