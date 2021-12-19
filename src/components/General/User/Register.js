@@ -1,5 +1,6 @@
 import React, {useState} from "react"
 import {Router, useHistory } from "react-router-dom"
+import axios from "axios";
 
 const Register = () => {
 
@@ -10,20 +11,17 @@ const Register = () => {
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
 
+    const [nameError, setNameError] = useState("");
+    const [usernameError, setUsernameError] = useState("");
+    const [emailError, setEmailError] = useState("");
+    const [passwordError, setPasswordError] = useState("");
+    const [pasword_backupError, setPassword_backupError] = useState("");
+
     const errorStyle = {
         color:"red"
     } 
 
     const [userDetails,setUserDetials] = useState({
-        name :"",
-        username :"",
-        email :"",
-        password :"",
-        password_backup : "",
-        phonenumber :""
-    });
-
-    const [userError,setUserError] = useState({
         name :"",
         username :"",
         email :"",
@@ -51,26 +49,55 @@ const Register = () => {
 
     }
 
-    function register(event){
+    async function register(event){
         event.preventDefault();
 
+        if(userDetails.name === "")
+        {
+            setNameError("*enter a name")
+        }
+        if(userDetails.username === "")
+        {
+            setUsernameError("*enter a username")
+        }
+        if(userDetails.email === "")
+        {
+            setEmailError("*enter a email")
+        }
         if(userDetails.password === "")
         {
-            setUserError({...userError,
-                password: "*Enter your Password"})
+            setPasswordError("*enter a password")
+        }
+        if(userDetails.password === "")
+        {
+            setPassword_backupError("*enter a password")
         }
 
         if(userDetails.password !== "" && userDetails.password_backup !== "" && userDetails.email !== "" && userDetails.username !== "" && userDetails.name !== "" && userDetails.password === userDetails.password_backup)
         {
-            // var params = {
-            //     email:userCredentials.email,
-            //     password:userCredentials.password,
-            // }
+            const params = {
+                method: 'post',
+                url: '/user/register',
+                data:{
+                    name:userDetails.name,
+                    username:userDetails.username,
+                    email:userDetails.email,
+                    password:userDetails.password
+                }
+            }
             
-            setResponse(null)
-            setError(null)
-            setLoading(null)
-            // fetchData(params);
+            setLoading(true);
+            try {
+                const res = await axios.request(params);
+                setResponse(res.data);
+                setError(null);
+            } catch (err) {
+                setError(err);
+            } finally {
+                setLoading(false);
+                window.location.reload(false)
+                history.push("/")
+            }
         }
     }
 
@@ -89,7 +116,7 @@ const Register = () => {
                         placeholder="Name.."
                         onChange={onChange}
                     />
-                    <p className="error-register">{userError.name}</p><br/>
+                    <p className="error-register">{nameError}</p><br/>
                     <label htmlFor="username" className="register-label">your username:</label>
                     <input 
                         type="text" 
@@ -100,7 +127,7 @@ const Register = () => {
                         placeholder="Username.."
                         onChange={onChange}
                     />
-                    <p className="error-register">{userError.username}</p><br/>
+                    <p className="error-register">{usernameError}</p><br/>
                     <label htmlFor="email" className="register-label">E-mail address:</label>
                     <input 
                         type="text" 
@@ -111,7 +138,7 @@ const Register = () => {
                         placeholder="E-mail.."
                         onChange={onChange}
                     />
-                    <p className="error-register">{userError.email}</p><br/>
+                    <p className="error-register">{emailError}</p><br/>
                     <label htmlFor="password" className="register-label">Password:</label>
                     <input 
                         type="password" 
@@ -122,7 +149,7 @@ const Register = () => {
                         placeholder="Password.."
                         onChange={onChange}
                     />
-                    <p className="error-register">{userError.password}</p>
+                    <p className="error-register">{passwordError}</p>
                     <label htmlFor="password-backup" className="register-label">confirm password:</label>
                     <input 
                         type="password" 
@@ -133,7 +160,7 @@ const Register = () => {
                         placeholder="Confirm password.."
                         onChange={onChange}
                     />
-                    <p className="error-register">{userError.password_backup}</p>
+                    <p className="error-register">{pasword_backupError}</p>
                     <div className="axios-response" style={error !=null ? errorStyle : null}>
                         {axiosDataResponse()}
                     </div>

@@ -3,6 +3,7 @@ import { Route, Switch } from 'react-router';
 import Home from './Home/Home';
 import Error404 from './PageNotFound';
 import AdminContainer from "../Admin/AdminContainer";
+import EditorContainer from "../Editor/EditorContainer";
 import Login from "./User/Login";
 import Register from "./User/Register";
 import PostDetails from "./../General/Home/PostDetails";
@@ -19,6 +20,9 @@ const Container = (props) => {
         <Switch>
           <Route path = "/admin*">
             <AdminContainer url="/admin"/>
+          </Route>
+          <Route path = "/editor*">
+            <EditorContainer url="/editor"/>
           </Route>
           <Route exact path = "/posts-details/*" component={PostDetails}/>
           <Route exact path = "/login" component={Login}/>
