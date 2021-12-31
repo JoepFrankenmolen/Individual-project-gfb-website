@@ -1,0 +1,28 @@
+/*
+editor-container
+    post-container
+
+        editor-post-container
+
+
+*/
+.editor-post-container{
+    margin: 20px;
+    display: flex;
+}
+
+
+
+.editor-post-item-container
+{
+    background: rgba(170, 167, 167, 0.219);
+    display: flex;
+    margin: 20px;
+    margin-bottom: 0 !important;
+}
+
+.editor-post-content-more{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

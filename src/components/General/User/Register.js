@@ -82,7 +82,8 @@ const Register = () => {
                     name:userDetails.name,
                     username:userDetails.username,
                     email:userDetails.email,
-                    password:userDetails.password
+                    password:userDetails.password,
+                    phonenumber:""
                 }
             }
             
@@ -91,12 +92,12 @@ const Register = () => {
                 const res = await axios.request(params);
                 setResponse(res.data);
                 setError(null);
+                window.location.reload(false)
+                history.push("/")
             } catch (err) {
                 setError(err);
             } finally {
                 setLoading(false);
-                window.location.reload(false)
-                history.push("/")
             }
         }
     }

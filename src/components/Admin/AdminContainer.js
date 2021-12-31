@@ -29,8 +29,8 @@ const AdminContainer = props => {
             </Route>
           <Route path = {url +"/groups"}>
             <GroupContainer
-                noConnection={noConnections}
-              />
+              noConnection={noConnections}
+            />
           </Route>
           <Route path = {url +"/"}>
             <a>this is the admin section. here will be buttons displayed to navigate to your desired subsection</a>
