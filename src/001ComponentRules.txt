@@ -6,6 +6,7 @@
 (for example the users = x)
 fo/X
     f/xCreate
+    f/xUpdate ??? maybe upsert or save or merg
     f/XContainer
     fo/list
         f/XList
@@ -18,7 +19,9 @@ fo/admin
     fo/x
     fo/x
     fo/x
-    fo/x
+    fo/admin
+        f/AdminStatistics
+        f/AdminOptions
     f/AdminContainer
 
 fo/general

@@ -4,6 +4,7 @@ import GroupContainer from './Group/GroupContainer';
 import UserContainer from './User/UserContainer'
 import PageNotFound from "../General/PageNotFound";
 import './../../css/Admin/admin.css'
+import GroupDetails from "./Group/GroupDetails";
 
 const AdminContainer = props => {
 
@@ -27,10 +28,9 @@ const AdminContainer = props => {
               noConnection={noConnections}
             />
             </Route>
+          <Route exact path = {url + "/groups/*"} component={GroupDetails}/>
           <Route path = {url +"/groups"}>
-            <GroupContainer
-              noConnection={noConnections}
-            />
+            <GroupContainer/>
           </Route>
           <Route path = {url +"/"}>
             <a>this is the admin section. here will be buttons displayed to navigate to your desired subsection</a>

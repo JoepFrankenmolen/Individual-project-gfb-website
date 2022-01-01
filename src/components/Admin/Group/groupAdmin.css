@@ -1,0 +1,93 @@
+/* 
+admin-group-details
+admin-group-container  
+    admin-group-box
+        admin-group-save
+            admin-group-save-container
+                admin-group-save-box
+                    admin-group-save-form
+                        admin-group-save-label
+                        admin-group-save-text
+                        admin-group-save-select
+                        admin-group-save-error
+                        admin-group-save-response
+        admin-group-list
+            admin-group-list-container
+                admin-group-list-item
+                    admin-group-list-item-container
+                        admin-group-list-item-image
+                        admin-group-list-item-content
+                        admin-group-list-item-details
+                        admin-group-list-item-edit
+                        
+*/
+
+.admin-group-container,.admin-group-box,.admin-group-save,.admin-group-list,.admin-group-save-container{
+    width: 100%;
+}
+
+.admin-group-container,.admin-group-box{
+    height: 100%;
+}
+
+
+/*save*/
+.admin-group-box{
+    display: flex;
+}
+
+.admin-group-save{
+    width: 50%;
+}
+
+.admin-group-save-container{
+    display: flex;
+    justify-content: center;
+}
+
+/*list*/
+.admin-group-list-item{
+    margin:20px;
+    border-radius: 5px;
+    background: rgba(102, 100, 100, 0.137);
+    border-width: 2px;
+    padding: 20px;
+}
+
+.admin-group-list-item-container{
+    display: flex;
+    width: 100%;
+}
+
+.admin-group-list-item-content{
+    display: flex;
+    flex-direction: column;
+}
+
+.admin-group-list-item-image{
+    margin-right: 20px;
+}
+
+.admin-group-list-item-details{
+    margin-left: auto;    
+}
+
+.admin-group-list-item-edit{
+    margin-left: 10px;
+}
+
+.admin-group-list-item-edit,.admin-group-list-item-details
+{
+    align-self: flex-end;
+    cursor: pointer;
+    background: rgba(4, 4, 255, 0.822);
+    color: white;
+    padding:4px;
+    border-radius: 3px;
+}
+
+/*details*/
+.admin-group-details{
+    display: flex;
+    flex-direction: column;
+}
