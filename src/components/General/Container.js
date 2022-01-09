@@ -1,6 +1,6 @@
 import React, {useState} from "react"
 import { Route, Switch } from 'react-router';
-import Home from './Home/Home';
+import PostContainer from './Home/PostContainer';
 import Error404 from './PageNotFound';
 import AdminContainer from "../Admin/AdminContainer";
 import EditorContainer from "../Editor/EditorContainer";
@@ -9,6 +9,7 @@ import Register from "./User/Register";
 import PostDetails from "./../General/Home/PostDetails";
 import Chat from "./Contact/Chat/Chat";
 import Contact from "./Contact/Contact";
+import SpeltakContainer from "./Speltakken/SpeltakContainer";
 import "./../../css/container.css"
 
 const Container = (props) => {
@@ -24,6 +25,9 @@ const Container = (props) => {
           <Route path = "/editor*">
             <EditorContainer url="/editor"/>
           </Route>
+          <Route path = "/speltak*">
+            <SpeltakContainer url="/speltak"/>
+          </Route>
           <Route exact path = "/posts-details/*" component={PostDetails}/>
           <Route exact path = "/login" component={Login}/>
           <Route exact path = "/register" component={Register}/>
@@ -31,12 +35,12 @@ const Container = (props) => {
           <Route exact path = "/contact" component={Contact}/>
           <Route exact path = "/contact/chat" component={Chat}/>
           <Route exact path = "/">
-              <Home
-                response={props.response}
-                error={props.error}
-                loading={props.loading}
-              />
-            </Route>
+            <PostContainer
+              response={props.response}
+              error={props.error}
+              loading={props.loading}
+            />
+          </Route>
           <Route exact path = "/*" component={Error404}/>
         </Switch>
     </div>

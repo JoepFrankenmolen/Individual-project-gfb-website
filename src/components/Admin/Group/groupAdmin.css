@@ -91,3 +91,8 @@ admin-group-container
     display: flex;
     flex-direction: column;
 }
+
+.admin-group-details-img{
+    max-height: 200px;
+    max-width: 200px;
+}

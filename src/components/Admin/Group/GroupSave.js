@@ -33,7 +33,7 @@ const GroupSave = () => {
             setNameError("*enter a name")
         }        
         
-        if(groupDetails.category === "-1")
+        if(categoryId === "-1")
         {
             setCategoryError("*enter a category")
         }//zit nog een bug in idk waar
@@ -103,7 +103,7 @@ const GroupSave = () => {
                         <option value="anders">anders</option>
                         {/* hard coded for now */}
                     </select>
-                    <p className="admin-group-save-error">{nameError}</p><br/>
+                    <p className="admin-group-save-error">{categoryError}</p><br/>
 
                     <div className="admin-group-save-response" style={error !=null ? errorStyle : null}>
                         {saveResponse()}

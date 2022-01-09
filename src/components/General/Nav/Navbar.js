@@ -6,118 +6,32 @@ import { v4 as uuidv4 } from "uuid";
 import {useHistory } from "react-router-dom"
 import accountIcon from "./../../../media/account-icon.png"
 import Dropdown from './Dropdown/Dropdown';
+import useAxios from '../UseAxios';
 
 const Navbar = props => 
 {
     const [userName, setUserName] = useState(fetchUser());
     const history = useHistory();
+    const { response, error, loading } = useAxios({
+        method: 'get',
+        url: '/group/speltak/category',
+    }); 
 
-    const navItems = 
-    [
-        {
-            id: uuidv4(),
-            title:"Home",
-            route:"/",
-            subPages:
-            [
+    const groups = () =>{
+        const groups = []
+        response.forEach(element => {
+            groups.push((
                 {
-                    id: uuidv4(),
-                    title:"agenda",
-                    route:"/agenda",
-                },
-                {
-                    id: uuidv4(),
-                    title:"membership",
-                    route:"/member",
-                },
-                {
-                    id: uuidv4(),
-                    title:"internship",
-                    route:"/intern",
-                },
-                {
-                    id: uuidv4(),
-                    title:"scoutfit",
-                    route:"/scoutfit",
-                },
-                {
-                    id: uuidv4(),
-                    title:"social security",
-                    route:"/sc",
+                    id:element.id,
+                    title:element.name,
+                    route:"/speltak/" + element.name
                 }
-            ]
-        },
-        {
-            id: uuidv4(),
-            title:"Groupbranches",
-            route:"/speltakken",
-            subPages:
-            [
-                {//the way this will be done is by fetching the name of the group and displaying al the posts witht he same name group name on the page
-                    id: uuidv4(),
-                    title:"bevers",
-                    route:"/speltakken/bevers",
-                }
-            ]
-        },
-        {
-            id: uuidv4(),
-            title:"Picturebook",
-            route:"/fotoboek",
-            subPages:
-            [
-                {//you can select a year but it is nowhere near implemented yet it will be fetched from the api
-                    id: uuidv4(),
-                    title:"2016",
-                    route:"/fotoboek/2016",
-                }
-            ]
-        },
-        {
-            id: uuidv4(),
-            title:"contact",
-            route:"/contact",
-            subPages:
-            [
-                {
-                    id: uuidv4(),
-                    title:"chat",
-                    route:"/contact/chat",
-                }
-            ]
-        },
-        {//in the furute this will be an api call and I will just feed you back to what you have premmision to  so this wont show as well as the admin section
-            id: uuidv4(),
-            title:"editor",
-            route:"/editor",
-            subPages:
-            [
-                {
-                    id: uuidv4(),
-                    title:"post",
-                    route:"/editor/post",
-                }
-            ]
-        },
-        {
-            id: uuidv4(),
-            title:"admin",
-            route:"/admin",
-            subPages:
-            [
-                {
-                    id: uuidv4(),
-                    title:"groups",
-                    route:"/admin/groups",
-                },
-                {
-                    id: uuidv4(),
-                    title:"users",
-                    route:"/admin/users",
-                }
-            ]
-        }
-    ]
+            ))
+        })
+        return groups
+    }
+
+    
 
     function fetchUser(){
         let username = sessionStorage.getItem("name")
@@ -137,6 +51,123 @@ const Navbar = props =>
     
     const redirect = (link) =>  {
         history.push(link); 
+    }
+
+    const dropdownMenu = () =>{
+        if(response !== null)
+        {
+            //in the furute this will be fecthed from the backend
+            const navItems = 
+            [
+                {
+                    id: uuidv4(),
+                    title:"Home",
+                    route:"/",
+                    subPages:
+                    [
+                        {
+                            id: uuidv4(),
+                            title:"agenda",
+                            route:"/agenda",
+                        },
+                        {
+                            id: uuidv4(),
+                            title:"membership",
+                            route:"/member",
+                        },
+                        {
+                            id: uuidv4(),
+                            title:"internship",
+                            route:"/intern",
+                        },
+                        {
+                            id: uuidv4(),
+                            title:"scoutfit",
+                            route:"/scoutfit",
+                        },
+                        {
+                            id: uuidv4(),
+                            title:"social security",
+                            route:"/sc",
+                        }
+                    ]
+                },
+                {
+                    id: uuidv4(),
+                    title:"Groupbranches",
+                    route:"/speltak",
+                    subPages: groups()
+                },
+                {
+                    id: uuidv4(),
+                    title:"Picturebook",
+                    route:"/fotoboek",
+                    subPages:
+                    [
+                        {//you can select a year but it is nowhere near implemented yet it will be fetched from the api
+                            id: uuidv4(),
+                            title:"2016",
+                            route:"/fotoboek/2016",
+                        }
+                    ]
+                },
+                {
+                    id: uuidv4(),
+                    title:"contact",
+                    route:"/contact",
+                    subPages:
+                    [
+                        {
+                            id: uuidv4(),
+                            title:"chat",
+                            route:"/contact/chat",
+                        }
+                    ]
+                },
+                {//in the furute this will be an api call and I will just feed you back to what you have premmision to  so this wont show as well as the admin section
+                    id: uuidv4(),
+                    title:"editor",
+                    route:"/editor",
+                    subPages:
+                    [
+                        {
+                            id: uuidv4(),
+                            title:"post",
+                            route:"/editor/post",
+                        }
+                    ]
+                },
+                {
+                    id: uuidv4(),
+                    title:"admin",
+                    route:"/admin",
+                    subPages:
+                    [
+                        {
+                            id: uuidv4(),
+                            title:"groups",
+                            route:"/admin/groups",
+                        },
+                        {
+                            id: uuidv4(),
+                            title:"users",
+                            route:"/admin/users",
+                        }
+                    ]
+                }
+            ]
+
+            return(
+                <Dropdown
+                    navItems={navItems}
+                />
+            )
+        }
+        else{
+            return(
+                <a>error</a>
+            )
+        }
     }
 
     function slideshowLinks(){
@@ -192,9 +223,7 @@ const Navbar = props =>
             </div>
             <div className="navbar-navigation-container">
                 <div className="navbar-navigation">
-                    <Dropdown
-                        navItems={navItems}
-                    />
+                    {dropdownMenu()}
                 </div>
                 <div className="navbar-navigation-searchbar">
                     <Searchbar filter={props.filter}/>
