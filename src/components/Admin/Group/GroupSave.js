@@ -93,9 +93,9 @@ const GroupSave = () => {
                         placeholder="Name.."
                         onChange={onChange}
                     />
-                    <p className="admin-group-save-error">{nameError}</p><br/>
+                    <a className="admin-group-save-error admin-go-up">{nameError}</a>
 
-                    <label for="category" className='admin-group-save-label'>Chose a category:</label>
+                    <label for="category" className='admin-group-save-label admin-give-margin'>Chose a category:</label>
                     <select name="category" value={categoryId} onChange={handleChange} className='admin-group-save-select'>
                         <option value="-1">select category:</option>
                         <option value="speltak">speltak</option>
@@ -103,7 +103,7 @@ const GroupSave = () => {
                         <option value="anders">anders</option>
                         {/* hard coded for now */}
                     </select>
-                    <p className="admin-group-save-error">{categoryError}</p><br/>
+                    <a className="admin-group-save-error">{categoryError}</a>
 
                     <div className="admin-group-save-response" style={error !=null ? errorStyle : null}>
                         {saveResponse()}

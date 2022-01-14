@@ -1,6 +1,7 @@
 import React, {useState} from "react"
 import {Router, useHistory } from "react-router-dom"
 import axios from "axios";
+import "./register.css"
 
 const Register = () => {
 
@@ -92,12 +93,16 @@ const Register = () => {
                 const res = await axios.request(params);
                 setResponse(res.data);
                 setError(null);
-                window.location.reload(false)
-                history.push("/")
+                if(res.data.includes("-"))
+                {
+                    history.push("/")
+                }
+                
             } catch (err) {
                 setError(err);
             } finally {
                 setLoading(false);
+
             }
         }
     }
@@ -106,7 +111,7 @@ const Register = () => {
         <div className="register-container">
             {goBack()}
             <div className="register-box">
-                <form onSubmit={register} className="register-form">
+                <form onSubmit={register} className="register-form-register">
                     <label htmlFor="name" className="register-label">name:</label>
                     <input 
                         type="text" 
@@ -117,7 +122,7 @@ const Register = () => {
                         placeholder="Name.."
                         onChange={onChange}
                     />
-                    <p className="error-register">{nameError}</p><br/>
+                    <a className="error-register">{nameError}</a>
                     <label htmlFor="username" className="register-label">your username:</label>
                     <input 
                         type="text" 
@@ -128,7 +133,7 @@ const Register = () => {
                         placeholder="Username.."
                         onChange={onChange}
                     />
-                    <p className="error-register">{usernameError}</p><br/>
+                    <a className="error-register">{usernameError}</a>
                     <label htmlFor="email" className="register-label">E-mail address:</label>
                     <input 
                         type="text" 
@@ -139,7 +144,7 @@ const Register = () => {
                         placeholder="E-mail.."
                         onChange={onChange}
                     />
-                    <p className="error-register">{emailError}</p><br/>
+                    <a className="error-register">{emailError}</a>
                     <label htmlFor="password" className="register-label">Password:</label>
                     <input 
                         type="password" 
@@ -150,7 +155,7 @@ const Register = () => {
                         placeholder="Password.."
                         onChange={onChange}
                     />
-                    <p className="error-register">{passwordError}</p>
+                    <a className="error-register">{passwordError}</a>
                     <label htmlFor="password-backup" className="register-label">confirm password:</label>
                     <input 
                         type="password" 
@@ -161,13 +166,13 @@ const Register = () => {
                         placeholder="Confirm password.."
                         onChange={onChange}
                     />
-                    <p className="error-register">{pasword_backupError}</p>
+                    <a className="error-register">{pasword_backupError}</a>
                     <div className="axios-response" style={error !=null ? errorStyle : null}>
                         {axiosDataResponse()}
                     </div>
                         
                     <div className="submit">
-                        <input type="submit"className="register-form-submit" value="register"/>
+                        <input type="submit"className="register-form-submit register-form-submit-register" value="register"/>
                     </div>
                 </form> 
             </div>

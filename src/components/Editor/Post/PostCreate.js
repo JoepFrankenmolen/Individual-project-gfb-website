@@ -85,7 +85,7 @@ const CreatePost = () => {
         else if(response !== null)
         { 
             return(
-                <select name="groupId" value={postDetails.groupId} onChange={onChange} className='options-from-select'>
+                <select name="groupId" value={postDetails.groupId} onChange={onChange} className='options-form-select createpost-text-width'>
                     <option value="-1">select group:</option>
                     {response.map((group) =>(
                         
@@ -246,47 +246,48 @@ const CreatePost = () => {
         <div className="createpost-container">
             <div className="createpost-box">
                 <form onSubmit={createPost} className="createpost-form">
-                    <label for="groups" className='options-form-label'>Chose a group:</label>
+                    <h1>create posts:</h1>
+                    <label for="groups" className='createpost-label'>Chose a group:</label>
                     {selectGroup()}
-                    <p className="error-createpost">{errorGroup}</p><br/>
+                    <a className="error-createpost">{errorGroup}</a>
 
                     <label htmlFor="name" className="createpost-label">picture:</label>
                     <input 
                         type="file" 
-                        className="createpost-file" 
+                        className="createpost-file createpost-text-width" 
                         name="picture" 
                         onChange={onPictureChange}
                     />
-                    <p className="error-createpost">{errorPicture}</p><br/>
+                    <a className="error-createpost">{errorPicture}</a>
 
                     <label htmlFor="title" className="createpost-label">title:</label>
                     <input 
                         type="text" 
-                        className="createpost-text" 
+                        className="createpost-text createpost-text-spacing" 
                         value={postDetails.title}
                         name="title" 
                         placeholder="Title.."
                         onChange={onChange}
                     />
-                    <p className="error-createpost">{errorTitle}</p><br/>
-
+                    <a className="error-createpost">{errorTitle}</a>
                     <label htmlFor="content" className="createpost-label">content:</label>
                     <textarea  
                         type="text-area" 
-                        className="createpost-text" 
+                        className="createpost-text createpost-text-width " 
                         value={postDetails.content}
                         name="content" 
                         placeholder="Content.."
+                        rows={10}
                         onChange={onChange}
                     />
-                    <p className="error-createpost">{errorContent}</p><br/>
+                    <a className="error-createpost">{errorContent}</a>
 
                     <div className="axios-response" style={error !=null ? errorStyle : null}>
                         {axiosDataResponse()}
                     </div>
                         
                     <div className="submit">
-                        <input type="submit"className="createpost-form-submit" value="register"/>
+                        <input type="submit"className="createpost-form-submit-post" value="create post"/>
                     </div>
                 </form> 
             </div>

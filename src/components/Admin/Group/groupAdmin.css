@@ -45,6 +45,45 @@ admin-group-container
     justify-content: center;
 }
 
+.admin-group-save-box{
+    background: rgba(102, 100, 100, 0.137);
+    border-radius: 5px;
+    width: 50%;
+    padding: 20px;
+}
+
+.admin-group-save-form{
+    display: flex;
+    flex-direction: column;
+}
+
+.admin-group-save-label{
+    margin-left: 20px;
+    margin-bottom: -15px;
+}
+.admin-go-up{
+    margin-top: -20px;
+    margin-bottom: 20px;
+}
+
+.admin-give-margin{
+    margin-bottom: 0px !important;
+}
+
+.admin-group-save-select{
+    width: 87% !important;
+    margin: auto;
+}
+
+.admin-group-save-form-submit{
+    width: 87%;
+}
+
+.admin-group-save-error{
+    color: red;
+    margin-left: 20px;
+}
+
 /*list*/
 .admin-group-list-item{
     margin:20px;

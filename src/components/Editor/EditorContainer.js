@@ -12,7 +12,7 @@ const EditorContainer = props => {
         setOnce(true)
         history.goBack()
     }
-}
+  }
 
 
   const noConnections = () =>{

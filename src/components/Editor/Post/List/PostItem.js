@@ -58,22 +58,32 @@ const PostItem = (props) => {
         refresh()
     }
 
+    let visible = {}
+    let margin = {}
+
+    if(props.post.active)
+    {
+        visible = {display:"none"}
+        margin = {marginLeft:"auto"}
+    }
+
     return(
         <div className='editor-post-item-container'>
             <div className='editor-post-item'>
                 <div className="editor-post-title-container">
-                    <h1 className="editor-post-title">{props.post.title}</h1>
+                    <h2 className="editor-post-title">title: {props.post.title}</h2>
+                    <a className="editor-post-published">published: {props.post.active.toString()}</a>
                 </div>
             </div>
-            <div className='editor-post-content-more'>
-                <b className='post-content-more-text' onClick={postDetails}>open post<MdArrowForwardIos className='post-content-more-icon'/> </b>
+            <div className='editor-post-button editor-post-button-margin'style={visible}>
+                <b className='editor-post-button-text' onClick={publish}>publish post<MdArrowForwardIos className='post-content-more-icon'/> </b>
             </div>
-            <div className='editor-post-content-more'>
-                <b className='post-content-more-text' onClick={publish}>publish post<MdArrowForwardIos className='post-content-more-icon'/> </b>
+            <div className='editor-post-button' style={margin}>
+                <b className='editor-post-button-text ' onClick={postDetails}>open post<MdArrowForwardIos className='post-content-more-icon'/> </b>
             </div>
-            <div className='editor-post-content-more'>
-                <b className='post-content-more-text' onClick={toggleActive}>{props.post.active.toString()}<MdArrowForwardIos className='post-content-more-icon'/> </b>
-            </div>
+            {/* <div className='editor-post-button'>
+                <b className='editor-post-button-text' onClick={toggleActive}>{props.post.active.toString()}<MdArrowForwardIos className='post-content-more-icon'/> </b>
+            </div> */}
         </div>        
     )
 }

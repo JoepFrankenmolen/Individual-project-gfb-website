@@ -45,6 +45,44 @@ admin-user-container
     justify-content: center;
 }
 
+.admin-user-save-box{
+    background: rgba(102, 100, 100, 0.137);
+    border-radius: 5px;
+    padding: 20px;
+    width: 50%;
+}
+
+.admin-user-save-form{
+    display: flex;
+    flex-direction: column;
+}
+
+.admin-user-save-label{
+    margin-bottom: -15px !important;
+}
+
+.admin-user-save-error,.admin-user-save-label{
+    margin-left: 20px;
+    margin-right: auto;
+}
+
+.admin-user-save-error{
+    color: red;
+    margin-top: -20px !important;
+    margin-bottom: 20px;
+}
+
+.admin-user-save-form-submit{
+    width: 87%;
+    margin: 10px;
+}
+
+.admin-user-save-select{
+    width: 87%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 /*list*/
 .admin-user-list-item{
     margin:20px;
@@ -52,6 +90,10 @@ admin-user-container
     background: rgba(102, 100, 100, 0.137);
     border-width: 2px;
     padding: 20px;
+}
+
+.admin-give-margin{
+    margin-bottom: 0px !important;
 }
 
 .admin-user-list-item-container{

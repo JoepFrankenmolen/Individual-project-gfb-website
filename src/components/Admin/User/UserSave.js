@@ -127,6 +127,7 @@ const UserSave = () => {
         <div className="admin-user-save-container">
             <div className="admin-user-save-box">
                 <form onSubmit={save} className="admin-user-save-form">
+                    <h1>add user:</h1>
                     <label for="name" className="admin-user-save-label">name:</label>
                     <input 
                         type="text" 
@@ -137,7 +138,7 @@ const UserSave = () => {
                         placeholder="Name.."
                         onChange={onChange}
                     />
-                    <p className="admin-user-save-error">{nameError}</p><br/>
+                    <a className="admin-user-save-error">{nameError}</a>
                     <label for="username" className="admin-user-save-label">username:</label>
                     <input 
                         type="text" 
@@ -148,7 +149,7 @@ const UserSave = () => {
                         placeholder="Username.."
                         onChange={onChange}
                     />
-                    <p className="admin-user-save-error">{nameError}</p><br/>
+                    <a className="admin-user-save-error">{nameError}</a>
                     <label for="email" className="admin-user-save-label">email:</label>
                     <input 
                         type="text" 
@@ -159,7 +160,7 @@ const UserSave = () => {
                         placeholder="E-mail.."
                         onChange={onChange}
                     />
-                    <p className="admin-user-save-error">{emailError}</p><br/>
+                    <a className="admin-user-save-error">{emailError}</a>
                     <label for="password" className="admin-user-save-label">password:</label>
                     <input 
                         type="password" 
@@ -170,9 +171,9 @@ const UserSave = () => {
                         placeholder="Password.."
                         onChange={onChange}
                     />
-                    <p className="admin-user-save-error">{passwordError}</p><br/>
+                    <a className="admin-user-save-error">{passwordError}</a>
 
-                    <label for="category" className='admin-user-save-label'>Chose a category:</label>
+                    <label for="category" className='admin-user-save-label admin-give-margin'>Chose a category:</label>
                     <select name="role" value={role} onChange={handleChange} className='admin-user-save-select'>
                         <option value="-1">select role:</option>
                         <option value="ADMIN">admin</option>
@@ -184,7 +185,7 @@ const UserSave = () => {
                         <option value="MEMBER">member</option>
                         {/* hard coded for now */}
                     </select>
-                    <p className="admin-user-save-error">{roleError}</p><br/>
+                    <a className="admin-user-save-error">{roleError}</a>
 
                     <div className="admin-user-save-response" style={error !=null ? errorStyle : null}>
                         {saveResponse()}
