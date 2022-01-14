@@ -21,9 +21,7 @@ const PostDetails = () => {
         return (
           <img src={response.picture.url} alt={response.picture.name} className="post-body-picture" />
         )
-      }
-      
-      
+      }      
     }
 
     if(response === null && error === null && loading ===false)
