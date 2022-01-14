@@ -100,7 +100,7 @@ const Navbar = props =>
                 },
                 {
                     id: uuidv4(),
-                    title:"Photo-album",
+                    title:"Photoalbum",
                     route:"/fotoboek",
                     subPages:
                     [
