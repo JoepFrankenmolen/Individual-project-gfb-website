@@ -1,0 +1,111 @@
+/*
+editor-container
+    post-container
+
+        editor-post-container
+
+
+*/
+.editor-post-container,.createpost-container,.editor-post-container-box{
+    width: 100%;
+}
+
+.editor-post-container{
+    display: flex;
+}
+
+
+/*posts*/
+.editor-post-item-container
+{
+    background: rgba(170, 167, 167, 0.219);
+    display: flex;
+    flex-direction: row;
+
+    padding: 5px;
+    padding-left: 20px;
+
+    border-radius: 5px;
+    
+    margin-bottom: 0 !important;
+    margin: 20px;
+
+}
+
+.editor-post-content-more{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.editor-post-button-margin{
+    margin-left: auto;
+}
+
+.editor-post-button{
+    margin-right: 30px;
+    margin-top: auto;
+    background: blue;
+    color: white;
+
+    padding:5px;
+    padding-left: 10px;
+
+    border-radius: 30px;
+    margin-bottom: 5px;
+
+    cursor: pointer;
+
+    box-shadow: 4px 4px 10px #0000008f;
+}
+
+.post-content-more-icon{
+    margin-bottom: -4px;
+}
+
+/*form*/
+.createpost-form{
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top:20px;
+    background-color: rgba(128, 128, 128, 0.281);
+    border-radius: 4px;
+    box-shadow: 3px 6px 14px #0000002d;
+
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.createpost-label{
+    margin-left: 4.5%;
+}
+
+.createpost-text-width{
+    width: 90% !important;
+    margin-left: 4%;
+}
+
+.createpost-text-spacing,.createpost-text-width{
+    margin-top:5px !important;
+    margin-bottom:10px !important;
+}
+
+.options-form-select{
+    color: #000000af;
+    padding: 8px 16px;
+    border: 1px solid transparent;
+    border-color: transparent transparent rgba(0, 0, 0, 0.027) transparent;
+    cursor: pointer;
+    user-select: none;
+}
+
+
+.createpost-form-submit-post{
+    width: calc(100% - 8%);
+}
+
+.createpost-big-text{
+    rows:5;
+}

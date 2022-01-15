@@ -1,14 +1,14 @@
 import React from "react"
 import useAxios from "../../General/UseAxios";
 
-const GroupDetails = () => {
+const UserDetails = () => {
 
-    var id = window.location.pathname.replace("/admin/groups/","")
+    var id = window.location.pathname.replace("/admin/users/","")
 
     //the groups the user can chose from to start
     const { response, error, loading } = useAxios({
       method: 'get',
-      url: '/group/'+ id,
+      url: '/user/'+ id,
       headers: 
       {
           Authorization: sessionStorage.getItem("token"),
@@ -18,10 +18,10 @@ const GroupDetails = () => {
   if(response !== null)
   {
     return (
-      <div class="admin-group-details">
-          <img src={response.pictureUrl} className="admin-group-details-img"></img>
+      <div class="admin-user-details">
           <a>name:{response.name}</a>
-          <a>category:{response.category}</a>   
+          <a>username:{response.username}</a>
+          <a>email:{response.email}</a>   
           <a>active:{response.active.toString()}</a>
       </div>
     )
@@ -29,11 +29,11 @@ const GroupDetails = () => {
   else
   {
     return (
-      <div class="admin-group-details">
+      <div class="admin-user-details">
           error
       </div>
     )
   }
 
 }
-export default GroupDetails
+export default UserDetails

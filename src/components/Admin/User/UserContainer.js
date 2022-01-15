@@ -1,19 +1,25 @@
+import axios from "axios";
 import React, { useState, useEffect } from "react"
-import UserList from "./UserList"
-import { v4 as uuidv4 } from "uuid"
+// import GroupList from "./GroupList"
+// import GroupSearchBar from "./GroupSearchBar"
+// import GroupDetails from "./GroupDetails";
+// import PageNotFound from "../../General/PageNotFound";
+import UserList from "./List/UserList"
+import UserSave from "./UserSave"
+import "./userAdmin.css"
 
-const UserContainer = () => {
- // const [groups, setGroups]
 
 
-
-  return (
-    <div className="container">
-      <div className="inner">
-       {/*} <UserList
-        //  groups={groups}
-  />*/}
-  <a>here will be all the users displayed</a>
+const UserContainer = (props) => { 
+  return(
+    <div className="admin-user-container">
+      <div className="admin-user-box">
+        <div className="admin-user-save">
+          <UserSave/>
+        </div>
+        <div className="admin-user-list">
+          <UserList/>
+        </div>
       </div>
     </div>
   )

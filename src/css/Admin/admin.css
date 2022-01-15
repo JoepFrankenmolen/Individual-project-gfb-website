@@ -1,0 +1,135 @@
+
+.admin_container{
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+}
+
+.admin_inner_container
+{
+  margin: 1%;
+  width: 98%;
+  height: 96%;
+}
+
+.main-admin-page
+{
+  display: flex;
+}
+
+.admin-statistics-container,.admin-options-container{
+  width: 100%;
+}
+
+.admin-statistics-container,.admin-options-container{
+  height: 100%;
+}
+
+.admin-options-box{
+  margin:50px;
+
+}
+
+.admin-options-item{
+  background: rgba(128, 128, 128, 0.411);
+  border-radius: 4px;
+  margin: 20px;
+  cursor: pointer;
+  width: 50%;
+  display: flex;
+}
+
+.admin-options-item h1{
+  padding: 10px;
+  padding-left: 20px;
+}
+
+.admin-options-carret{
+  margin-left: auto;
+}
+
+
+
+
+
+/* .group_container{
+  	display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.group_name{
+  margin-top: -20px;
+}
+
+
+.group_info_bar{
+  display: flex;
+  
+}
+
+.group_info{
+  flex:1;
+}
+
+.group_button{
+  float: right;
+  overflow: hidden;
+  margin-right:3%;
+  margin-top: 1%;
+}
+
+
+.group_create_button{
+  width: 200px;
+  height: 40px;
+  background-color:green ;
+  display: flex;
+  justify-content: center;
+  color:white;
+  border-radius: 3px;
+  align-items: center;
+  cursor: pointer;
+}
+
+.group_create_button a{
+  margin-bottom: 5px;
+}
+
+
+
+.list{
+  width: 98%;
+  display: flex;
+  flex-flow: row wrap;
+
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  margin-left: 1.5%;
+}
+
+
+.item 
+{
+  display: flex;
+  width: 48%;
+  list-style-type: none;
+  border: 2px solid #eaeaea;
+  
+  margin:0.5%;
+}
+
+.groupPictureDiv
+{
+  text-align: center;
+  width: 150px;
+  height: 100px;
+}
+
+.groupPicture
+{
+  max-width:100%;
+  max-height:100%;
+}
+ */
