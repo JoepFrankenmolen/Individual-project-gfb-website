@@ -17,7 +17,7 @@ function pageNotFound(props) {
   return (
     <div className="main">
       <h1>error 404</h1>
-      <a>page doesn't exsists yet</a>
+      <a>page doesn't exist yet</a>
     </div>
   );
 }
